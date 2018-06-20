@@ -4,11 +4,25 @@ img {
   width: 100%;
 }
 .initial-hidden {
-  /* display:none; */
+   display:none;
 }
 .player-message {
   float: right;
-  text-align: right;
+  clear: left;
+  clear: right;
+  text-align: left;
+  border: solid #1F94FB;
+  background-color: #1F94FB;
+  border-radius: 10px;
+  color: white;
+  font-size: 11px;
+  padding: 5px;
+  max-width: 75%;
+}
+.player-message-multiple {
+  float: right;
+  clear: right;
+  text-align: left;
   border: solid #1F94FB;
   background-color: #1F94FB;
   border-radius: 10px;
@@ -19,6 +33,7 @@ img {
 }
 .person-message {
   float:left;
+  clear: right;
   text-align: left;
   border: solid #E6E5EA;
   background-color: #E6E5EA;
@@ -50,7 +65,7 @@ img {
   float: right;
 }
 
-.newMessage {
+div[class*="newMessage"] {
   display: none;
   float: right;
 }
