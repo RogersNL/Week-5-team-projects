@@ -4,9 +4,27 @@ img {
   width: 100%;
 }
 .initial-hidden {
-  display:none;
+  /* display:none; */
 }
-
+.player-message {
+  float: right;
+  text-align: right;
+  border: solid #1F94FB;
+  background-color: #1F94FB;
+  border-radius: 10px;
+  color: white;
+  font-size: 11px;
+  /* width:70%; */
+  padding: 5px;
+  max-width: 75%;
+}
+.text-window {
+  height: 200px;
+  overflow-y: scroll;
+}
+.respond-message {
+  background-color: #E6E5EA;
+}
 .message-box {
       background-color: white;
       opacity: .9;

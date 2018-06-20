@@ -20,8 +20,15 @@ Person.prototype.firstName = function() {
   return splitName[0];
 }
 //Functions
-function messengingSequence () {
-
+function messengingSequence (name, messageNumber) {
+  $("#" + name + "-form-" + messageNumber).submit(function(event) {
+    event.preventDefault();
+    $(".initial-show-" + name).hide();
+    var message = $("#" + name + "-options-" + messageNumber).val();
+    $(".message-area-" + name).append('<div><span class="player-message">' + message + '</span></div>');
+    $("#" + name + "-form-" + messageNumber).hide();
+    $("#" + name + "-form-" + (messageNumber + 1)).show();
+  });
 }
 
 //Profile Information
@@ -46,7 +53,7 @@ var Player = new Person ()
 
 //Player Responses Messages
 
-var playerResponses1 = ["Hello", "Sup Honey Bo Bo", "Greatings, M'lady of the night", "HI // HEY // HEEELLLOOOOO???"];
+var playerResponses1 = ["Hello", "Sup Honey Bo Bo", "Greetings, M'lady of the night", "HI // HEY // HEEELLLOOOOO???"];
 var playerResponses2 = ["I'm going to Wholefoods later, can I pick you up anything?", "Heaven must be missing an Angel", "You so spooky my skeleton is shakin'", "You look like you wanna get WILD!"];
 var playerResponses3 = ["Tell me more about yourself"];
 var playerResponses4 = ["Yeah, I really love it here, great place!", "Mmmm yeah idk this place is kinda weird..."];
@@ -111,10 +118,10 @@ $(document).ready(function(){
                                     newPerson.firstName() + ' is Online' +
                                   '</div>' +
                                   '<div class="panel-body" id="response-' + newPerson.firstName() + '">' +
-                                    '<div class="message-area">' +
-                                      '<p class="initial-show"><strong>*Send ' + newPerson.firstName() + ' a message*</strong></p>' +
-                                      '<div id="message-options-' + newPerson.firstName() + '">' +
-                                      '</div>' +
+                                    '<div class="text-window message-area-' + newPerson.firstName() + '">' +
+                                      '<p class="initial-show-' + newPerson.firstName() + '"><strong>*Send ' + newPerson.firstName() + ' a message*</strong></p>' +
+                                    '</div>' +
+                                    '<div id="message-options-' + newPerson.firstName() + '">' +
                                     '</div>' +
                                   '</div>' +
                                 '</div>' +
@@ -125,7 +132,7 @@ $(document).ready(function(){
                                          '<select class="resize-input form-group input-sm" id="' + newPerson.firstName() + '-options-' + b + '">' +
                                          '</select>' +
                                          '<div class="messageButton">' +
-                                           '<button class="btn btn-primary btn-sm">Send Message</button>' +
+                                           '<button type="submit" class="btn btn-primary btn-sm">Send Message</button>' +
                                          '</div>' +
                                        '</form>'
          );
@@ -156,15 +163,31 @@ $(document).ready(function(){
     $("#message-Brenda").click(function(){
       $(".message-box-Brenda").slideToggle();
     });
-  });
-  //Messenging Forms
-    //Dutchess Messenger
-      $("#Dutchess-form-0").submit(function(event) {
-        event.preventDefault();
-        $
-        $("#Dutchess-form-0").hide();
-        $("#Dutchess-form-1").show();
+    //Messenging Forms
+      //Dutchess Messenger
+      messengingSequence("Dutchess", 0);
+      messengingSequence("Dutchess", 1);
+      messengingSequence("Dutchess", 2);
+      messengingSequence("Dutchess", 3);
+      messengingSequence("Dutchess", 4);
 
-      });
+      //Supul Messenger
+      messengingSequence("Supul", 0);
+      messengingSequence("Supul", 1);
+      messengingSequence("Supul", 2);
+      messengingSequence("Supul", 3);
+      messengingSequence("Supul", 4);
+
+      //Brenda Messenger
+      messengingSequence("Brenda", 0);
+      messengingSequence("Brenda", 1);
+      messengingSequence("Brenda", 2);
+      messengingSequence("Brenda", 3);
+      messengingSequence("Brenda", 4);
+
+
+
+
+  });
 
 });
