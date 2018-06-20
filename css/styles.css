@@ -1,0 +1,45 @@
+img {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.initial-hidden {
+  display:none;
+}
+
+.message-box {
+      background-color: white;
+      opacity: .9;
+      z-index: 2;
+      cursor: pointer;
+      border: solid;
+  }
+.resize-input {
+  width: 60%
+}
+
+.messageButton {
+  float: right;
+}
+
+.newMessage {
+  display: none;
+  float: right;
+}
+.profile-h2 {
+  text-align: center;
+  font-size:26px;
+}
+.message-hide1, .message-hide2, .message-hide3, .message-hide4 {
+  display: none;
+}
+.sendMsg {
+  text-align: left;
+}
+.inline-button {
+  display: inline;
+}
+.about-box {
+  border:solid transparent;
+  height: 80px;
+}

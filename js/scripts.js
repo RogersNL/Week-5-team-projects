@@ -1,159 +1,170 @@
-var Person = function(name, dark, crazy, normal) {
+//Constructors
+var Person = function(name, age, astrological, occupation, hobby, profileImage, score, aboutMe) {
   this.name = name;
-  // this.age = age;
-  // this.aboutMe; aboutMe;
-  // this.astrolgical = astrolgical;
-  // this.occupation = occupation;
-  this.dark = dark;
-  this.crazy = crazy;
-  this.normal = normal;
+  this.age = age;
+  this.astrological = astrological;
+  this.occupation = occupation;
+  this.hobby = hobby;
+  this.profileImage = profileImage;
+  this.likeScore = score;
+  this.aboutMe= aboutMe;
 }
 
+var Messages = function(name, localLikeScore) {
+  this.name = name;
+  this.localLikeScore = localLikeScore;
+}
+//Prototype Methods
+Person.prototype.firstName = function() {
+  var splitName = this.name.split(" ");
+  return splitName[0];
+}
+//Functions
+function messengingSequence () {
 
-var profileNames = ["Helga", "Mindy", "Jane "];
-var profileAges = [45];
+}
+
+//Profile Information
+var profileNames = ["Dutchess Capreanu", "Supul Sinac", "Brenda Smith"];
+var profileAges = [30, 27, 25];
 var profileAboutMes = [
-  "My name is " + profileNames[Math.floor((Math.random() * 3))] + " I hail from Bavaria. I like beer, bratwurst and Oompah music.  I hold the record for Das Boot in all of Germany. I like strong aggressive men.",
-];
+                        "Just moved to the area from Transylvania. Back in the market for love after a misunderstanding with the locals. No garlic please.",
 
+                        "On the prowl for that special someone who can respect my space when I need it (regular monthly trips).",
 
-var profileAstrologicals = ["Scorpio"];
-var profileOccupations = ["Beer Witch"];
+                        "Vegan.  Not really sure what I am doing on here, my friends made me set up a profile. Must love dogs."
+
+                      ];
+var profileAstrologicals = ["Capricorn","Leo","Virgo"];
+var profileOccupations = ["Night Shift", "Bartender", "Wage Slave"];
+var profileHobbies = ["Candelabra", "Hunting", "Netflix"];
+var profileImages = ["vampire", "wolf", "basic"];
+var profileLikeScore = [10, 10, 10];
+
+//Global variables
+var Player = new Person ()
+
+//Player Responses Messages
+
+var playerResponses1 = ["Hello", "Sup Honey Bo Bo", "Greatings, M'lady of the night", "HI // HEY // HEEELLLOOOOO???"];
+var playerResponses2 = ["I'm going to Wholefoods later, can I pick you up anything?", "Heaven must be missing an Angel", "You so spooky my skeleton is shakin'", "You look like you wanna get WILD!"];
+var playerResponses3 = ["Tell me more about yourself"];
+var playerResponses4 = ["Yeah, I really love it here, great place!", "Mmmm yeah idk this place is kinda weird..."];
+var playerResponses5 = ["Oh you know the usual, I work as a <span class='entered-occupation'><span>, I enjoy watching Netflix, taking the occasional walk, and <span class='entered-hobby></span>'", "#chillaxin at the beach with some brewskis, workin on my tan and hangin out with the bros at the gym #gymlyfe #beachbrews", "Midnight graveyard walks, fog dancing, hula-hooping, and <span class='entered-hobby></span>", "Huntin, fishin, muddin, rock crawlin, and <span class='entered-hobby></span>"];
+var arrayOfResponses = [playerResponses1, playerResponses2, playerResponses3, playerResponses4, playerResponses5];
 
 $(document).ready(function(){
+  $("#sign-up").click(function() {
+    $("#sign-up").hide();
+    $("#create-profile").fadeIn();
+  })
+  $("#form-match").submit(function(event) {
+    event.preventDefault();
+    var inputtedName = $("#user-name").val();
+    var inputtedAge = $("#user-age").val();
+    var inputtedAstrological = $("#astrological-sign").val();
+    var inputtedOccupation = $("#user-occupation").val();
+    var inputtedHobby = $("input:radio[name=hobby]:checked").val();
+    if (inputtedHobby === "user-input-hobby") {
+      inputtedHobby = $("#user-input-hobby").val();
+    }
+    Player = new Person (inputtedName, inputtedAge, inputtedAstrological, inputtedOccupation, inputtedHobby);
+    if (Player.name === "" || Player.occupation === "" || Player.hobby === "") {
+      $("#blank-form").show();
+    } else {
+      console.log(Player);
+      //Create Profile Panels
+      for (i = 0; i < profileNames.length; i++) {
+        var newPerson = new Person (profileNames[i], profileAges[i], profileAstrologicals[i], profileOccupations[i], profileHobbies[i], profileImages[i], profileLikeScore[i], profileAboutMes[i]);
+        $("#profiles").append(
+                              '<div class="col-md-4">' +
+                                '<div class="panel panel-danger ">' +
+                                  '<h2 class = "panel-heading profile-h2"><span class = "profile-name" >' + newPerson.name + '</span></h2>' +
+                                  '<div class="panel-body profile-panels">' +
+                                    '<div class="row">' +
+                                      '<div class="col-md-6">' +
+                                        '<strong>Age:</strong> <span class = "profile-age" >' + newPerson.age + '</span>' +
+                                      '</div>' +
+                                      '<div class="col-md-6">' +
+                                        '<strong>Interested In:</strong> <span class = "gender-interests">Male</span>' +
+                                      '</div>' +
+                                    '</div>' +
+                                    '<img src="img/' + newPerson.profileImage + '.jpg" alt="">' +
+                                    '<div class="">' +
+                                      '<p><strong>Astrological Sign:</strong> <span class ="profile-astrological">' + newPerson.astrological + '</span></p>' +
+                                      '<p><strong>Occupation:</strong> <span class = "profile-occupation">' + newPerson.occupation + '</span></p>' +
+                                      '<p><strong>Hobby:</strong> <span class = "profile-hobby">' + newPerson.hobby + '</span></p>' +
+                                      '<div class="about-box">' +
+                                        '<strong>About me:</strong> <span class = "profile-about-me">' + newPerson.aboutMe + '</span>' +
+                                      '</div>' +
+                                    '</div>' +
+                                    '<div class="panel-body row">' +
+                                      '<button type="button" class="btn btn-primary inline-button" id="message-' + newPerson.firstName() + '">Message Me!</button>' +
+                                      '<div class="newMessage">' +
+                                        '<p><strong>1 New Message</strong></p>' +
+                                      '</div>' +
+                                    '</div>' +
+                                  '</div>' +
+                                '</div>' +
+                                '<div class="panel panel-primary initial-hidden message-box-' + newPerson.firstName() + '">' +
+                                  '<div class="panel-heading">' +
+                                    newPerson.firstName() + ' is Online' +
+                                  '</div>' +
+                                  '<div class="panel-body" id="response-' + newPerson.firstName() + '">' +
+                                    '<div class="message-area">' +
+                                      '<p class="initial-show"><strong>*Send ' + newPerson.firstName() + ' a message*</strong></p>' +
+                                      '<div id="message-options-' + newPerson.firstName() + '">' +
+                                      '</div>' +
+                                    '</div>' +
+                                  '</div>' +
+                                '</div>' +
+                              '</div>'
+                            );
+        for (b = 0; b < arrayOfResponses.length; b++) {
+          $("#message-options-" + newPerson.firstName()).append('<form id="' + newPerson.firstName() + '-form-' + b + '" class="form-inline message-hide' + b + '">' +
+                                         '<select class="resize-input form-group input-sm" id="' + newPerson.firstName() + '-options-' + b + '">' +
+                                         '</select>' +
+                                         '<div class="messageButton">' +
+                                           '<button class="btn btn-primary btn-sm">Send Message</button>' +
+                                         '</div>' +
+                                       '</form>'
+         );
+          for (c = 0; c < arrayOfResponses[b].length; c++) {
+            $("#" + newPerson.firstName() + "-options-" + b).append(
+              '<option>' + arrayOfResponses[b][c] + '</option>'
+            );
+          }
+        }
 
-  //profile1 dark
-  //profile2 crazy
-  //profile3 normal
+      }
+      //Fill in blanks
+      $(".entered-occupation").text(Player.occupation);
+      $(".entered-hobby").text(Player.hobby);
 
-  //question1   intro text message
-  //1 dark intro
-  //2 crazy intro
-  //3 normal intro
-  //question2   pickup line
-  //question3   date location
-
-  var dark = 0;
-  var crazy = 0;
-  var normal = 0;
-
-  var profile1 = new Person("Eddie", dark, crazy, normal);
-
-  profileDark = true;
-  profileCrazy = false;
-  profileNormal = false;
-
-  // response to each question. responses output 1 - 3
-  firstText = 1; // first text
-  pickUpText = 1; // second text
-  locationText = 1; // third text
-
-  // question2 = 3;
-  // question3 = 3;
-
-  var response1 = ""
-  var response2 = ""
-  var response3 = ""
-  ///// response to question 1
-
-  //var textMessage = 0;
-
-
-  Person.prototype.introText = function(){
-    //Dark person
-    if (profileDark === true && firstText === 1) {
-      response1 = "dark intro = DARK response"
-      this.dark += 1;
-    } else if (profileDark === true && firstText === 2) {
-      response1 = "crazy intro = DARK response"
-    } else if (profileDark === true && firstText === 3) {
-      response1 = "normal intro= Dark response"
-      //Crazy person
-    } else if (profileCrazy === true && firstText === 1) {
-      response1 = "dark intro= CRAZY response"
-    } else if (profileCrazy === true && firstText=== 2) {
-      response1 = "crazy intro= CRAZY response"
-      this.crazy += 1;
-    } else if (profileCrazy === true && firstText=== 3) {
-      response1 = "normal intro= CRAZY response"
-      //Normal Person
-    } else if (profileNormal === true && firstText === 1) {
-      response1 = "dark intro= NORMAL response"
-    } else if (profileNormal === true && firstText=== 2) {
-      response1 = "crazy intro = NORMAL response"
-    } else if (profileNormal === true && firstText === 3) {
-      response1 = "normal intro = NORMAL response"
-      this.normal += 1;
+      //Hide sign up, show profiles
+      $("#create-profile").hide();
+      $("#profiles").fadeIn();
     }
 
-  }
-  //introText();
+    //Messenger toggles
+    $("#message-Dutchess").click(function(){
+      $(".message-box-Dutchess").slideToggle();
+    });
+    $("#message-Supul").click(function(){
+      $(".message-box-Supul").slideToggle();
+    });
+    $("#message-Brenda").click(function(){
+      $(".message-box-Brenda").slideToggle();
+    });
+  });
+  //Messenging Forms
+    //Dutchess Messenger
+      $("#Dutchess-form-0").submit(function(event) {
+        event.preventDefault();
+        $
+        $("#Dutchess-form-0").hide();
+        $("#Dutchess-form-1").show();
 
-  Person.prototype.pickUpLine = function(){
-    if (profileDark === true && pickUpText  === 1) {
-      response2 = "dark pickupline= DARK response";
-      this.dark += 1;
-    } else if(profileDark === true && pickUpText  === 2){
-      response2 = "crazy pickUpLine= DARK response";
-    } else if(profileDark === true && pickUpText  === 3){
-      response2 = "normal pickUpLine= dark response";
-
-    } else if (profileCrazy  === true && pickUpText  === 1) {
-      response2 = "dark pickupline= CRAZY response";
-    } else if(profileCrazy  === true && pickUpText === 2){
-      response2 = "crazy pickUpLine= CRAZY response";
-      this.crazy += 1;
-    } else if(profileCrazy === true && pickUpText  === 3){
-      response2 = "normal pickUpLine = CRAZY  response";
-
-    } else if (profileNormal === true && pickUpText  === 1) {
-      response2 = "dark pickupline= NORMAL response";
-    } else if(profileNormal  === true && pickUpText  === 2){
-      response2 = "crazy pickUpLine= NORMAL response";
-    } else if(profileNormal === true && pickUpText  === 3){
-      response2 = "normal pickUpLine = NORMAL response";
-      this.normal += 1;
-    }
-
-
-  }
-  //pickUpLine();
-
-  Person.prototype.dateLocation = function(){
-    if (profileDark === true && locationText  === 1) {
-      response3 = "dark location= DARK response";
-      this.dark +=1;
-    } else if (profileDark === true && locationText === 2){
-      response3 = "crazy location= DARK response";
-    } else if (profileDark=== true && locationText === 3){
-      response3 = "normal location= DARK response";
-
-    } else if (profileCrazy === true && locationText  === 1) {
-      response3 = "dark location = CRAZY response";
-    } else if(profileCrazy === true && locationText === 2){
-      response3 = "crazy location = CRAZY response";
-      this.crazy += 1;
-    } else if(profileCrazy=== true && locationText === 3){
-      response3 = "normal location=  CRAZY response";
-
-    } else if (profileNormal === true && locationText  === 1) {
-      response3 = "dark location = NORMAL response";
-    } else if(profileNormal === true && locationText === 2){
-      response3 = "crazy location= NORMALresponse";
-    } else if(profileNormal === true && locationText === 3){
-      response3 = "normal location= NORMAL response";
-      this.normal += 1;
-    }
-
-  }
-  //location();
-  profile1.dateLocation();
-  profile1.introText();
-  profile1.pickUpLine();
-
-
-  document.getElementById("test").innerHTML = profile1.dark;
-  // document.getElementById("test1").innerHTML = response2;
-  // document.getElementById("test2").innerHTML = response3;
+      });
 
 });
