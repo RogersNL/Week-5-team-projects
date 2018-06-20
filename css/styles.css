@@ -14,7 +14,17 @@ img {
   border-radius: 10px;
   color: white;
   font-size: 11px;
-  /* width:70%; */
+  padding: 5px;
+  max-width: 75%;
+}
+.person-message {
+  float:left;
+  text-align: left;
+  border: solid #E6E5EA;
+  background-color: #E6E5EA;
+  border-radius: 10px;
+  font-size: 11px;
+  color:black;
   padding: 5px;
   max-width: 75%;
 }
