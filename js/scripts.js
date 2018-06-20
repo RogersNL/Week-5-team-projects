@@ -14,148 +14,244 @@ var Messages = function(name, localLikeScore) {
   this.name = name;
   this.localLikeScore = localLikeScore;
 }
+
 //Prototype Methods
 Person.prototype.firstName = function() {
   var splitName = this.name.split(" ");
   return splitName[0];
 }
+
+//Global variables
+var Player = new Person ()
+var messageDutchess = false;
+var messageSupul = false;
+var messageBrenda = false;
+var personResponse = 0;
+
 //Functions
-function messengingSequence (name, messageNumber) {
+function messengingSequence (name, messageNumber, arrayNames, arrayPerson0, arrayPerson1, arrayPerson2) {
   $("#" + name + "-form-" + messageNumber).submit(function(event) {
     event.preventDefault();
+    console.log(Player);
     $(".initial-show-" + name).hide();
-    var message = $("#" + name + "-options-" + messageNumber).val();
-    $(".message-area-" + name).append('<div><span class="player-message">' + message + '</span></div>');
+    $(".newMessageDutchess").hide();
+    $(".newMessageSupul").hide();
+    $(".newMessageBrenda").hide();
+    var message = parseInt($("#" + name + "-options-" + messageNumber).val());
+    personResponse = message;
+    var messageNum = messageNumber;
+    if (messageNumber === 0 && message === 3) {
+      $(".message-area-" + name).append('<div><span class="player-message-multiple">HI</span></div>');
+      $(".message-area-" + name).append('<div><span class="player-message-multiple">HEY</span></div>');
+      $(".message-area-" + name).append('<div><span class="player-message">HEEELLLOOOOO???</span></div>');
+    } else {
+    $(".message-area-" + name).append('<div><span class="player-message">' + arrayOfResponses[messageNumber][message] + '</span></div>');
+    }
+    messageDutchess = false;
+    messageSupul = false;
+    messageBrenda = false;
+    if (name === "Dutchess") {
+      messageDutchess = true;
+    } else if (name === "Supul") {
+      messageSupul = true;
+    } else if (name === "Brenda") {
+      messageBrenda = true;
+    }
     $("#" + name + "-form-" + messageNumber).hide();
     $("#" + name + "-form-" + (messageNumber + 1)).show();
+    allResponses (messageNum, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
   });
 }
-
-function messengingResponse0() {
+function allResponses (messageNumber) {
+  if (messageNumber === 0) {
+    messengingResponse0 (profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
+  }
+  if (messageNumber === 1) {
+    messengingResponse1 (profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
+  }
+  if (messageNumber === 2) {
+    messengingResponse2 (profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
+  }
+  if (messageNumber === 3) {
+    messengingResponse3 (profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
+  }
+  if (messageNumber === 4) {
+    messengingResponse4 (profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
+  }
+  if (messageNumber === 5) {
+    messengingResponse5 (profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
+  }
+}
+function messengingResponse0(arrayNames, arrayPerson0, arrayPerson1, arrayPerson2) {
   //Dark person Dutchess
-  if (profileDark === true && firstText === 1) {
-    response1Dutchess = "... "
-  } else if (profileDark === true && firstText === 2) {
-    response1Dutchess = "... ugh"
-  } else if (profileDark === true && firstText === 3) {
-    response1Dutchess = "Greatings morta... er " + Player.firstName();
-  } else if (profileDark === true && firstText === 4) {
-    response1Dutchess = "Um... hello?";
+  if (messageDutchess === true && personResponse === 0) {
+    $(".message-area-Dutchess").append('<div><span class="person-message">' + arrayPerson0[0][0] + '</span></div>');
+    $(".newMessageDutchess").show();
+  } else if (messageDutchess === true && personResponse === 1) {
+    $(".message-area-Dutchess").append('<div><span class="person-message">' + arrayPerson0[0][1] + '</span></div>');
+    $(".newMessageDutchess").show();
+  } else if (messageDutchess === true && personResponse === 2) {
+    $(".message-area-Dutchess").append('<div><span class="person-message">' + arrayPerson0[0][2] + '</span></div>');
+    $(".entered-name").text(Player.name);
+    $(".newMessageDutchess").show();
+  } else if (messageDutchess === true && personResponse === 3) {
+    $(".message-area-Dutchess").append('<div><span class="person-message">' + arrayPerson0[0][3] + '</span></div>');
+    $(".newMessageDutchess").show();
     //Crazy person Supul
-  } else if (profileCrazy === true && firstText === 1) {
-    response1Supul = "Huh? WhaT? You talking to MEEE?"
-  } else if (profileCrazy === true && firstText === 2) {
-    response1Supul = "HONEY WHAT???"
-  } else if (profileCrazy === true && firstText === 3) {
-    response1Supul = "WHAT?? WHO TOLD YOU???"
-  } else if (profileCrazy === true && firstText === 4) {
-    response1Supul = "HEEEEEEEEEEEEEEEEYYYY!!!!"
+  } else if (messageSupul === true && personResponse === 0) {
+    $(".message-area-Supul").append('<div><span class="person-message">' + arrayPerson1[0][0] + '</span></div>');
+    $(".newMessageSupul").show();
+  } else if (messageSupul === true && personResponse === 1) {
+    $(".message-area-Supul").append('<div><span class="person-message">' + arrayPerson1[0][1] + '</span></div>');
+    $(".newMessageSupul").show();
+  } else if (messageSupul === true && personResponse === 2) {
+    $(".message-area-Supul").append('<div><span class="person-message">' + arrayPerson1[0][2] + '</span></div>');
+    $(".newMessageSupul").show();
+  } else if (messageSupul === true && personResponse === 3) {
+    $(".message-area-Supul").append('<div><span class="person-message">' + arrayPerson1[0][3] + '</span></div>');
+    $(".newMessageSupul").show();
     //Normal Person Brenda
-  } else if (profileNormal === true && firstText === 1) {
-    response1Brenda = "Sup"
-  } else if (profileNormal === true && firstText=== 2) {
-    response1Brenda  = "Ew"
-  } else if (profileNormal === true && firstText === 3) {
-    response1Brenda  = "EW"
-  } else if (profileNormal === true && firstText === 4) {
-    response1Brenda  = "Ugh"
+  } else if (messageBrenda === true && personResponse === 0) {
+    $(".message-area-Brenda").append('<div><span class="person-message">' + arrayPerson2[0][0] + '</span></div>');
+    $(".newMessageBrenda").show();
+  } else if (messageBrenda === true && personResponse=== 1) {
+    $(".message-area-Brenda").append('<div><span class="person-message">' + arrayPerson2[0][1] + '</span></div>');
+    $(".newMessageBrenda").show();
+  } else if (messageBrenda === true && personResponse === 2) {
+    $(".message-area-Brenda").append('<div><span class="person-message">' + arrayPerson2[0][2] + '</span></div>');
+    $(".newMessageBrenda").show();
+  } else if (messageBrenda === true && personResponse === 3) {
+    $(".message-area-Brenda").append('<div><span class="person-message">' + arrayPerson2[0][3] + '</span></div>');
+    $(".newMessageBrenda").show();
   }
 }
-function messengingResponse1() {
-  if (profileDark === true && pickUpText === 1) {
-    response2Dutchess = "Oh, no... they don't have anything I could eat";
-  } else if(profileDark === true && pickUpText === 2){
-    response2Dutchess = "Speak not of the accursed ones!";
-  } else if(profileDark === true && pickUpText  === 3){
-    response2Dutchess = "Oh my, well let us hope it doesn't rattle right out of you haha ;)";
-  } else if(profileDark === true && pickUpText  === 4){
-    response2Dutchess = "Eh, on occasion I suppose...";
+function messengingResponse1(arrayNames, arrayPerson0, arrayPerson1, arrayPerson2) {
+  if (messageDutchess === true && personResponse === 0) {
+    $(".message-area-Dutchess").append('<div><span class="person-message">' + arrayPerson0[1][0] + '</span></div>');
+    $(".newMessageDutchess").show();
+  } else if(messageDutchess === true && personResponse === 1){
+    $(".message-area-Dutchess").append('<div><span class="person-message">' + arrayPerson0[1][1] + '</span></div>');
+    $(".newMessageDutchess").show();
+  } else if(messageDutchess === true && personResponse  === 2){
+    $(".message-area-Dutchess").append('<div><span class="person-message">' + arrayPerson0[1][2] + '</span></div>');
+    $(".newMessageDutchess").show();
+  } else if(messageDutchess === true && personResponse  === 3){
+    $(".message-area-Dutchess").append('<div><span class="person-message">' + arrayPerson0[1][3] + '</span></div>');
+    $(".newMessageDutchess").show();
 
-  } else if (profileCrazy  === true && pickUpText  === 1) {
-    response2Supul = "Bah, where's the fun if the food's just sitting there waitin' for ya?";
-  } else if(profileCrazy  === true && pickUpText === 2){
-    response2Supul = "REEEEEEEE";
-  } else if(profileCrazy === true && pickUpText  === 3){
-    response2Supul = "Look, this hair is impossible OK?";
-  } else if(profileCrazy === true && pickUpText  === 4){
-    response2Supul = "AAAWWWWOOOOOOOOOOOOOOOOO!!!!";
+  } else if (messageSupul  === true && personResponse  === 0) {
+    $(".message-area-Supul").append('<div><span class="person-message">' + arrayPerson1[1][0] + '</span></div>');
+    $(".newMessageSupul").show();
+  } else if(messageSupul  === true && personResponse === 1){
+    $(".message-area-Supul").append('<div><span class="person-message">' + arrayPerson1[1][1] + '</span></div>');
+    $(".newMessageSupul").show();
+  } else if(messageSupul === true && personResponse  === 2){
+    $(".message-area-Supul").append('<div><span class="person-message">' + arrayPerson1[1][2] + '</span></div>');
+    $(".newMessageSupul").show();
+  } else if(messageSupul === true && personResponse  === 3){
+    $(".message-area-Supul").append('<div><span class="person-message">' + arrayPerson1[1][3] + '</span></div>');
+    $(".newMessageSupul").show();
 
-  } else if (profileNormal === true && pickUpText  === 1) {
-    response2Brenda = "OOOMG can you pick me up some chai??";
-  } else if(profileNormal  === true && pickUpText  === 2){
-    response2Brenda = "Ew";
-  } else if(profileNormal === true && pickUpText  === 3){
-    response2Brenda = "What?? How am I spooky???";
-  } else if(profileNormal === true && pickUpText  === 4){
-    response2Brenda = "Wow ok slow down there...";
+  } else if (messageBrenda === true && personResponse  === 0) {
+    $(".message-area-Brenda").append('<div><span class="person-message">' + arrayPerson2[1][0] + '</span></div>');
+    $(".newMessageBrenda").show();
+  } else if(messageBrenda  === true && personResponse  === 1){
+    $(".message-area-Brenda").append('<div><span class="person-message">' + arrayPerson2[1][1] + '</span></div>');
+    $(".newMessageBrenda").show();
+  } else if(messageBrenda === true && personResponse  === 2){
+    $(".message-area-Brenda").append('<div><span class="person-message">' + arrayPerson2[1][2] + '</span></div>');
+    $(".newMessageBrenda").show();
+  } else if(messageBrenda === true && personResponse  === 3){
+    $(".message-area-Brenda").append('<div><span class="person-message">' + arrayPerson2[1][3] + '</span></div>');
+    $(".newMessageBrenda").show();
   }
 }
-function messengingResponse2() {
-  if (profileDark === true && peronalInfoText === 1) {
-    response3Dutchess = "First you should know, as my profile mentioned, I am a widow and a recent immigrant to this fine kingdom. Second, I am, due to my work of course, a creature of the night and must spend my days sleeping. I've not yet seen everything the Dark Lord's Kingdom has to offer, but so far I feel right at home.";
-
-  } else if (profileCrazy === true && peronalInfoText === 1) {
-    response3Supul = "Where to start, where to start??? I am a fulltime bartender/athletics instructor/hunter (damn site would only let me put in one job). I loooove being out in the wild, the smell of the grass, the scent of the prey... ooooh and the Dark Lord's Kingdom as THE best places to hunt!!!";
-
-  } else if (profileNormal === true && peronalInfoText === 1) {
-    response3Brenda = "Let's see... I moved to the Dark Lord's Kingdom on a student visa 8 years ago. After school I already had lots of wage slave offers and so I decided to stay and apply for a work visa. I think maybe it was the seclution in college, but I never realized until afterwards how... strange this country is, and I'm not sure I really fit in...";
+function messengingResponse2(arrayNames, arrayPerson0, arrayPerson1, arrayPerson2) {
+  if (messageDutchess === true && personResponse === 0) {
+    $(".message-area-Dutchess").append('<div><span class="person-message">' + arrayPerson0[2][0] + '</span></div>');
+    $(".newMessageDutchess").show();
+  } else if (messageSupul === true && personResponse === 0) {
+    $(".message-area-Supul").append('<div><span class="person-message">' + arrayPerson1[2][0] + '</span></div>');
+    $(".newMessageSupul").show();
+  } else if (messageBrenda === true && personResponse === 0) {
+    $(".message-area-Brenda").append('<div><span class="person-message">' + arrayPerson2[2][0] + '</span></div>');
+    $(".newMessageBrenda").show();
   }
 }
-function messengingResponse3() {
-  if (profileDark === true && responseDLKtext === 1) {
-    response4Dutchess = "Yeah, I really love it here, great place!";
-
-  } else if (profileCrazy === true && responseDLKtext === 1) {
-    response4Supul = "Yeah, I really love it here, great place!";
-
-  } else if (profileNormal === true && responseDLKtext === 1) {
-    response4Brenda = "Mmmm yeah idk this place is kinda weird...";
+function messengingResponse3(arrayNames, arrayPerson0, arrayPerson1, arrayPerson2) {
+  if (messageDutchess === true && personResponse === 0) {
+    $(".message-area-Dutchess").append('<div><span class="person-message">' + arrayPerson0[3][0] + '</span></div>');
+    $(".newMessageDutchess").show();
+  } else if (messageSupul === true && personResponse === 0) {
+    $(".message-area-Supul").append('<div><span class="person-message">' + arrayPerson1[3][0] + '</span></div>');
+    $(".newMessageSupul").show();
+  } else if (messageBrenda === true && personResponse === 0) {
+    $(".message-area-Brenda").append('<div><span class="person-message">' + arrayPerson2[3][0] + '</span></div>');
+    $(".newMessageBrenda").show();
   }
 }
-function messengingResponse4() {
-  if (profileDark === true && responseToBioText === 1) {
-    response5Dutchess = "How… pedantic.";
-  } else if (profileDark === true && responseToBioText === 2){
-    response5Dutchess = "In… in the sun?";
-  } else if (profileDark=== true && responseToBioText === 3){
-    response5Dutchess = "How delightful";
-  } else if (profileDark=== true && responseToBioText === 4){
-    response5Dutchess = "Well, I do love to feed";
+function messengingResponse4(arrayNames, arrayPerson0, arrayPerson1, arrayPerson2) {
+  if (messageDutchess === true && personResponse === 0) {
+    $(".message-area-Dutchess").append('<div><span class="person-message">' + arrayPerson0[4][0] + '</span></div>');
+    $(".newMessageDutchess").show();
+  } else if (messageDutchess === true && personResponse === 1){
+    $(".message-area-Dutchess").append('<div><span class="person-message">' + arrayPerson0[4][1] + '</span></div>');
+    $(".newMessageDutchess").show();
+  } else if (messageDutchess=== true && personResponse === 2){
+    $(".message-area-Dutchess").append('<div><span class="person-message">' + arrayPerson0[4][2] + '</span></div>');
+    $(".newMessageDutchess").show();
+  } else if (messageDutchess=== true && personResponse === 3){
+    $(".message-area-Dutchess").append('<div><span class="person-message">' + arrayPerson0[4][3] + '</span></div>');
+    $(".newMessageDutchess").show();
 
-  } else if (profileCrazy === true && responseToBioText === 1) {
-    response5Supul = "BO-RING";
-  } else if(profileCrazy === true && responseToBioText === 2){
-    response5Supul = "Mmmm fresh meat";
-  } else if(profileCrazy === true && responseToBioText === 3){
-    response5Supul = "Did you say… HULA-HOOPING??";
-  } else if(profileCrazy === true && responseToBioText === 4){
-    response5Supul = "Yeeeeah! Yes! YES! YESS!";
+  } else if (messageSupul === true && personResponse === 0) {
+    $(".message-area-Supul").append('<div><span class="person-message">' + arrayPerson1[4][0] + '</span></div>');
+    $(".newMessageSupul").show();
+  } else if(messageSupul === true && personResponse === 1){
+    $(".message-area-Supul").append('<div><span class="person-message">' + arrayPerson1[4][1] + '</span></div>');
+    $(".newMessageSupul").show();
+  } else if(messageSupul === true && personResponse === 2){
+    $(".message-area-Supul").append('<div><span class="person-message">' + arrayPerson1[4][2] + '</span></div>');
+    $(".newMessageSupul").show();
+  } else if(messageSupul === true && personResponse === 3){
+    $(".message-area-Supul").append('<div><span class="person-message">' + arrayPerson1[4][3] + '</span></div>');
+    $(".newMessageSupul").show();
 
-  } else if (profileNormal === true && responseToBioText === 1) {
-    response5Brenda = "OMG I luv Netflix!!!!!!!!!!!!!!!! I’ve watched every episode of The Office 7 times!";
-  } else if(profileNormal === true && responseToBioText === 2){
-    response5Brenda = "Uuuuuh… cooooooool?";
-  } else if(profileNormal === true && responseToBioText === 3){
-    response5Brenda = "You kinda sound like a creeper.";
-  } else if(profileNormal === true && responseToBioText === 3){
-    response5Brenda = "I’m a Vegan.";
+  } else if (messageBrenda === true && personResponse === 0) {
+    $(".message-area-Brenda").append('<div><span class="person-message">' + arrayPerson2[4][0] + '</span></div>');
+    $(".newMessageBrenda").show();
+  } else if(messageBrenda === true && personResponse === 1){
+    $(".message-area-Brenda").append('<div><span class="person-message">' + arrayPerson2[4][1] + '</span></div>');
+    $(".newMessageBrenda").show();
+  } else if(messageBrenda === true && personResponse === 2){
+    $(".message-area-Brenda").append('<div><span class="person-message">' + arrayPerson2[4][2] + '</span></div>');
+    $(".newMessageBrenda").show();
+  } else if(messageBrenda === true && personResponse === 3){
+    $(".message-area-Brenda").append('<div><span class="person-message">' + arrayPerson2[4][3] + '</span></div>');
+    $(".newMessageBrenda").show();
   }
 }
-function messengingResponse5() {
-  if (profileDark === true && locationText === 1) {
-    response6Dutchess = "Absolutely, darling.";
-  } else if (profileDark === true && locationText === 2){
-    response3Dutchess = "I suppose I have the time…";
+function messengingResponse5(arrayNames, arrayPerson0, arrayPerson1, arrayPerson2) {
+  if (messageDutchess === true && personResponse === 0) {
+    $(".message-area-Dutchess").append('<div><span class="person-message">' + arrayPerson0[5][0] + '</span></div>');
+    $(".newMessageDutchess").show();
+  } else if (messageDutchess === true && personResponse === 1){
+    $(".message-area-Dutchess").append('<div><span class="person-message">' + arrayPerson0[5][1] + '</span></div>');
+    $(".newMessageDutchess").show();
 
-  } else if (profileCrazy === true && locationText  === 1) {
-    response6Supul = "YAYAYAYAYAYA!";
-  } else if(profileCrazy === true && locationText === 2){
-    response3Supul = "What have I got to lose?";
+  } else if (messageSupul === true && personResponse  === 0) {
+    $(".message-area-Supul").append('<div><span class="person-message">' + arrayPerson1[5][0] + '</span></div>');
+    $(".newMessageSupul").show();
+  } else if(messageSupul === true && personResponse === 1){
+    $(".message-area-Supul").append('<div><span class="person-message">' + arrayPerson1[5][1] + '</span></div>');
+    $(".newMessageSupul").show();
 
-  } else if (profileNormal === true && locationText === 1) {
-    response6Brenda = "Uh sure.";
-  } else if(profileNormal === true && locationText === 2){
-    response6Brenda = "Sigh, I guess.";
+  } else if (messageBrenda === true && personResponse === 0) {
+    $(".message-area-Brenda").append('<div><span class="person-message">' + arrayPerson2[5][0] + '</span></div>');
+    $(".newMessageBrenda").show();
+  } else if(messageBrenda === true && personResponse === 1){
+    $(".message-area-Brenda").append('<div><span class="person-message">' + arrayPerson2[5][1] + '</span></div>');
+    $(".newMessageBrenda").show();
   }
 }
 
@@ -176,17 +272,43 @@ var profileHobbies = ["Candelabra", "Hunting", "Netflix"];
 var profileImages = ["vampire", "wolf", "basic"];
 var profileLikeScore = [10, 10, 10];
 
-//Global variables
-var Player = new Person ()
+//Player Response Messages
 
-//Player Responses Messages
+var playerResponses0 = ["Hello", "Sup Honey Bo Bo", "Greetings, M'lady of the night", "HI // HEY // HEEELLLOOOOO???"];
+var playerResponses1 = ["I'm going to Wholefoods later, can I pick you up anything?", "Heaven must be missing an Angel", "You so spooky my skeleton is shakin'", "You look like you wanna get WILD!"];
+var playerResponses2 = ["Tell me more about yourself."];
+var playerResponses3 = ["Yeah, I really love it here, great place!", "Mmmm yeah idk this place is kinda weird..."];
+var playerResponses4 = ["Oh you know the usual, I work as a programmer, I enjoy watching Netflix, taking the occasional walk, and eating.", "#chillaxin at the beach with some brewskis, workin on my tan and hangin out with the bros at the gym #gymlyfe #beachbrews", "Midnight graveyard walks, fog dancing, hula-hooping, and watching movies.", "Huntin, fishin, muddin, rock crawlin, and sleepin."];
+var playerResponses5 = ["Would you like to go out?"]
+var arrayOfResponses = [playerResponses0, playerResponses1, playerResponses2, playerResponses3, playerResponses4, playerResponses5];
 
-var playerResponses1 = ["Hello", "Sup Honey Bo Bo", "Greetings, M'lady of the night", "HI // HEY // HEEELLLOOOOO???"];
-var playerResponses2 = ["I'm going to Wholefoods later, can I pick you up anything?", "Heaven must be missing an Angel", "You so spooky my skeleton is shakin'", "You look like you wanna get WILD!"];
-var playerResponses3 = ["Tell me more about yourself"];
-var playerResponses4 = ["Yeah, I really love it here, great place!", "Mmmm yeah idk this place is kinda weird..."];
-var playerResponses5 = ["Oh you know the usual, I work as a <span class='entered-occupation'><span>, I enjoy watching Netflix, taking the occasional walk, and <span class='entered-hobby'></span>'", "#chillaxin at the beach with some brewskis, workin on my tan and hangin out with the bros at the gym #gymlyfe #beachbrews", "Midnight graveyard walks, fog dancing, hula-hooping, and <span class='entered-hobby'></span>", "Huntin, fishin, muddin, rock crawlin, and <span class='entered-hobby'></span>"];
-var arrayOfResponses = [playerResponses1, playerResponses2, playerResponses3, playerResponses4, playerResponses5];
+//Dutchess Response Messages
+var dutchessResponse0 = ["...", "... ugh", "Greetings morta... er <span class='entered-name'></span>", "um... hello?"];
+var dutchessResponse1 = ["Oh, no... they don't have anything I could eat", "Speak not of the accursed ones!", "Oh my, well let us hope it doesn't rattle right out of you haha ;)", "Eh, on occasion I suppose..."];
+var dutchessResponse2 = ["First you should know, as my profile mentioned, I am a widow and a recent immigrant to this fine kingdom. Second, I am, due to my work of course, a creature of the night and must spend my days sleeping. I've not yet seen everything the Dark Lord's Kingdom has to offer, but so far I feel right at home."];
+var dutchessResponse3 = ["Yeah, I really love it here, great place!"];
+var dutchessResponse4 = ["How... pedantic.", "In... in the sun?", "How delightful", "Well, I do love to feed"];
+var dutchessResponse5 = ["Absolutely, darling.", "I suppose I have the time..."];
+var arrayOfDutchessResponses = [dutchessResponse0, dutchessResponse1, dutchessResponse2, dutchessResponse3, dutchessResponse4, dutchessResponse5];
+
+//Supul Response Messages
+var supulResponse0 = ["Huh? WhaT? You talking to MEEE?", "HONEY WHAT???", "WHAT?? WHO TOLD YOU???", "HEEEEEEEEEEEEEEEEYYYY!!!!"];
+var supulResponse1 = ["Bah, where's the fun if the food's just sitting there waitin' for ya?", "REEEEEEEE", "Look, this hair is impossible OK?", "AAAWWWWOOOOOOOOOOOOOOOOO!!!!"];
+var supulResponse2 = ["Where to start, where to start??? I am a fulltime bartender/athletics instructor/hunter (damn site would only let me put in one job). I loooove being out in the wild, the smell of the grass, the scent of the prey... ooooh and the Dark Lord's Kingdom as THE best places to hunt!!!"];
+var supulResponse3 = ["Yeah, I really love it here, great place!"];
+var supulResponse4 = ["BO-RING", "Mmmm fresh meat", "Did you say... HULA-HOOPING??", "Yeeeeah! Yes! YES! YESS!"];
+var supulResponse5 = ["YAYAYAYAYAYA!", "What have I got to lose?"];
+var arrayOfSupulResponses = [supulResponse0, supulResponse1, supulResponse2, supulResponse3, supulResponse4, supulResponse5];
+
+//Brenda Response Messages
+var brendaResponse0 = ["Sup", "Ew", "EW", "Ugh"];
+var brendaResponse1 = ["OOOMG can you pick me up some chai??", "Ew", "What?? How am I spooky???", "Wow ok slow down there..."];
+var brendaResponse2 = ["Let's see... I moved to the Dark Lord's Kingdom on a student visa 8 years ago. After school I already had lots of wage slave offers and so I decided to stay and apply for a work visa. I think maybe it was the seclution in college, but I never realized until afterwards how... strange this country is, and I'm not sure I really fit in..."];
+var brendaResponse3 = ["Mmmm yeah idk this place is kinda weird..."];
+var brendaResponse4 = ["OMG I luv Netflix!!!!!!!!!!!!!!!! I’ve watched every episode of The Office 7 times!", "Uuuuuh... cooooooool?", "You kinda sound like a creeper.", "I’m a Vegan."];
+var brendaResponse5 = ["Uh sure.", "Sigh, I guess."];
+var arrayOfBrendaResponses = [brendaResponse0, brendaResponse1, brendaResponse2, brendaResponse3, brendaResponse4, brendaResponse5];
+
 
 $(document).ready(function(){
   $("#sign-up").click(function() {
@@ -208,7 +330,6 @@ $(document).ready(function(){
     if (Player.name === "" || Player.occupation === "" || Player.hobby === "") {
       $("#blank-form").show();
     } else {
-      console.log(Player);
       //Create Profile Panels
       for (i = 0; i < profileNames.length; i++) {
         var newPerson = new Person (profileNames[i], profileAges[i], profileAstrologicals[i], profileOccupations[i], profileHobbies[i], profileImages[i], profileLikeScore[i], profileAboutMes[i]);
@@ -236,7 +357,7 @@ $(document).ready(function(){
                                     '</div>' +
                                     '<div class="panel-body row">' +
                                       '<button type="button" class="btn btn-primary inline-button" id="message-' + newPerson.firstName() + '">Message Me!</button>' +
-                                      '<div class="newMessage">' +
+                                      '<div class="newMessage' + newPerson.firstName() + '">' +
                                         '<p><strong>1 New Message</strong></p>' +
                                       '</div>' +
                                     '</div>' +
@@ -256,6 +377,7 @@ $(document).ready(function(){
                                 '</div>' +
                               '</div>'
                             );
+
         for (b = 0; b < arrayOfResponses.length; b++) {
           $("#message-options-" + newPerson.firstName()).append('<form id="' + newPerson.firstName() + '-form-' + b + '" class="form-inline message-hide' + b + '">' +
                                          '<select class="resize-input form-group input-sm" id="' + newPerson.firstName() + '-options-' + b + '">' +
@@ -267,16 +389,14 @@ $(document).ready(function(){
          );
           for (c = 0; c < arrayOfResponses[b].length; c++) {
             $("#" + newPerson.firstName() + "-options-" + b).append(
-              '<option>' + arrayOfResponses[b][c] + '</option>'
+              '<option value="' + c + '">' + arrayOfResponses[b][c] + '</option>'
             );
           }
         }
-
       }
-      //Fill in blanks
-      $(".entered-occupation").text(inputtedOccupation);
-      $(".entered-hobby").text(inputtedHobby);
-
+      // //Fill in blanks
+      // $(".entered-occupation").append(Player.occupation);
+      // $(".entered-hobby").append(Player.hobby);
       //Hide sign up, show profiles
       $("#create-profile").hide();
       $("#profiles").fadeIn();
@@ -295,45 +415,26 @@ $(document).ready(function(){
 
 
     //Messenging Forms
-    var profileDark = false;
-    var profileCrazy = false;
-    var profileNormal = false;
-
       //Dutchess Messenger
-      messengingSequence("Dutchess", 0);
-      messengingResponse0();
-      messengingSequence("Dutchess", 1);
-      messengingResponse1()
-      messengingSequence("Dutchess", 2);
-      messengingResponse2()
-      messengingSequence("Dutchess", 3);
-      messengingResponse3()
-      messengingSequence("Dutchess", 4);
-      messengingResponse4()
+      messengingSequence("Dutchess", 0, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
+      messengingSequence("Dutchess", 1, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
+      messengingSequence("Dutchess", 2, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
+      messengingSequence("Dutchess", 3, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
+      messengingSequence("Dutchess", 4, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
 
       //Supul Messenger
-      messengingSequence("Supul", 0);
-      messengingResponse0()
-      messengingSequence("Supul", 1);
-      messengingResponse1()
-      messengingSequence("Supul", 2);
-      messengingResponse2()
-      messengingSequence("Supul", 3);
-      messengingResponse3()
-      messengingSequence("Supul", 4);
-      messengingResponse4()
+      messengingSequence("Supul", 0, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
+      messengingSequence("Supul", 1, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
+      messengingSequence("Supul", 2, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
+      messengingSequence("Supul", 3, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
+      messengingSequence("Supul", 4, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
 
       //Brenda Messenger
-      messengingSequence("Brenda", 0);
-      messengingResponse0()
-      messengingSequence("Brenda", 1);
-      messengingResponse1()
-      messengingSequence("Brenda", 2);
-      messengingResponse2()
-      messengingSequence("Brenda", 3);
-      messengingResponse3()
-      messengingSequence("Brenda", 4);
-      messengingResponse4()
+      messengingSequence("Brenda", 0, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
+      messengingSequence("Brenda", 1, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
+      messengingSequence("Brenda", 2, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
+      messengingSequence("Brenda", 3, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
+      messengingSequence("Brenda", 4, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
 
 
   // // response to each question. responses output 1 - 3
@@ -374,7 +475,7 @@ $(document).ready(function(){
   //   $(".testBox").slideToggle();
   // });
   // $("button.introT").click(function() {
-  //   profileDark = true;
+  //   messageDutchess = true;
   //     profile1.introText();
   //   $("#test").show();
   //   var text1 = setInterval(answer1, 4000);
