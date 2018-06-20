@@ -190,6 +190,7 @@ var arrayOfResponses = [playerResponses1, playerResponses2, playerResponses3, pl
 
 $(document).ready(function(){
   $("#sign-up").click(function() {
+    $(".header").hide();
     $("#sign-up").hide();
     $("#create-profile").fadeIn();
   })
@@ -213,7 +214,7 @@ $(document).ready(function(){
         var newPerson = new Person (profileNames[i], profileAges[i], profileAstrologicals[i], profileOccupations[i], profileHobbies[i], profileImages[i], profileLikeScore[i], profileAboutMes[i]);
         $("#profiles").append(
                               '<div class="col-md-4">' +
-                                '<div class="panel panel-danger ">' +
+                                '<div class="panel panel-danger" style="background: rgba(60,60,60,0.7);">' +
                                   '<h2 class = "panel-heading profile-h2"><span class = "profile-name" >' + newPerson.name + '</span></h2>' +
                                   '<div class="panel-body profile-panels">' +
                                     '<div class="row">' +
