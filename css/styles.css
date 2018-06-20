@@ -60,6 +60,26 @@ font-size: 52px;
   background-color: #FB4D3D;
   border-bottom: 2px dashed #071013;
 }
+.form-control{
+  background-color: #fff;
+  opacity: 0.7;
+  border: #000;
+}
+
+ #submit-button{
+   background-color: #dd2424;
+   border-color: #dd2424 ;
+   font-family: 'Amatic SC', cursive;
+   font-weight: 600;
+   font-size: 24px;
+   color:#171714;
+   opacity: 0.5;
+ }
+
+ #submit-button:hover{
+   opacity: 1;
+   cursor:crosshair;
+ }
 
 
 img {
