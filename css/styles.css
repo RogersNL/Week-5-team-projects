@@ -133,7 +133,6 @@ img {
 .player-message {
   float: right;
   clear: left;
-  clear: right;
   text-align: left;
   border: solid #1F94FB;
   background-color: #1F94FB;
