@@ -435,185 +435,221 @@ $(document).ready(function(){
   // var question8 = 1;
   //
   //
-  function dateQuestion1(){  //only one option
+  function dateResonse1(){  //only one option
     if (profileDark === true) {
-      dateResponse = "Of course darling, even before I moved to the Dark Lord’s Kingdom I was a creature of the night. I’m currently haunting the Old Farm Hotel between 11pm and sunrise. I don’t see many people these days but that is ok with me, I only need a few to survive. You should stay a night if you haven’t already, the decor is to die for!";
+      $("#date-text-output").text("Of course darling, even before I moved to the Dark Lord’s Kingdom I was a creature of the night. I’m currently haunting the Old Farm Hotel between 11pm and sunrise. I don’t see many people these days but that is ok with me, I only need a few to survive. You should stay a night if you haven’t already, the decor is to die for!");
   ///CRAZY PROFILE
     } else if (profileCrazy === true) {
-      dateResponse = "Aaaah what’s to tell?? I flip bottles and bounce drunks most of the time, but I also make a good deal with all the fresh meat I bring in from my hunts! The bartending is just to fill in the gaps. I live for the hunt!";
+      $("#date-text-output").text("Aaaah what’s to tell?? I flip bottles and bounce drunks most of the time, but I also make a good deal with all the fresh meat I bring in from my hunts! The bartending is just to fill in the gaps. I live for the hunt!");
   ///NORMAL PROFILE
     } else if (profileNormal === true){
-      dateResponse = "Oooooh you knooooow, I just work a boring nine to five over at the Wage Slave Industries. I got my degree in Wage Slavery, and the Dark Lord’s Kingdom has world class Wage Slavery! The work is fine, it’s the weirdos that get to me…";
+      $("#date-text-output").text("Oooooh you knooooow, I just work a boring nine to five over at the Wage Slave Industries. I got my degree in Wage Slavery, and the Dark Lord’s Kingdom has world class Wage Slavery! The work is fine, it’s the weirdos that get to me…");
     }
   }
 
-  function dateQuestion2(){  //only one option
+  function dateResponse2(){  //only one option
+    if (profileDark === true) {
+      $("#date-text-output").text("Just another glass of wine for me, I'm on a all liquid diet.");
+  ///CRAZY PROFILE
+    } else if (profileCrazy === true) {
+      $("#date-text-output").text("Raw steak, as much blood as possible.");
+  ///NORMAL PROFILE
+    } else if (profileNormal === true){
+      $("#date-text-output").text("Salad, no croutons.");
+    }
+  }
+
+  function dateResponse3(){  //only one option
+    if (profileDark === true) {
+      $("#date-text-output").text("Well, I have a great penchant for candelabra, and they have let me do some interior decorating at the hotel when the nights are slow. I am also a collector of fine -red- wines, although unlike most I prefer a younger blend… [she gazes off into the distance apparently lost in this thought]");
+  ///CRAZY PROFILE
+    } else if (profileCrazy === true) {
+      $("#date-text-output").text("YOU BETCHA! Did I mention that I love hunting? I am also a master taxidermist and decorated marathon runner!!! THINK YOU CAN KEEP UP?!?!");
+  ///NORMAL PROFILE
+    } else if (profileNormal === true){
+      $("#date-text-output").text("Ooooh well you know, everyone and everything in this place so so strange and foreign, I basically just watch Netflix these days. Have you seen the Office??");
+    }
+  }
+
+  function dateResponse4(){  //only one option
      if (profileDark === true){
-      dateResponse = "Well, I have a great penchant for candelabra, and they have let me do some interior decorating at the hotel when the nights are slow. I am also a collector of fine -red- wines, although unlike most I prefer a younger blend… [she gazes off into the distance apparently lost in this thought.";
+      $("#date-text-output").text("Ten years? The blink of an eye... Why I may be still sitting here in ten years...");
   ///CRAZY PROFILE
     } else if(profileCrazy === true){
-      dateResponse = "YOU BETCHA! Did I mention that I love hunting? I am also a master taxidermist and decorated marathon runner!!! THINK YOU CAN KEEP UP?!?!";
+      $("#date-text-output").text("What?? Ten years? Time flys, who knows. One day you are the apex preditor, the next BLAMO!!!");
   ///NORMAL PROFILE
     } else if (profileNormal === true){
-      dateResponse = "Oooooh you knooooow, I just work a boring nine to five over at the Wage Slave Industries. I got my degree in Wage Slavery, and the Dark Lord’s Kingdom has world class Wage Slavery! The work is fine, it’s the weirdos that get to me…";
+      $("#date-text-output").text("Well, I'm kinda hoping to get out of this town... maybe the way I got in, a masters abroad. Oh and kids, I want lots of kids.");
+    }
+  }
+
+  function dateResponse5(){  //only one option
+     if (profileDark === true){
+      $("#date-text-output").text("[Dutchess gazes up at the sky as a colony of bats swoops by] I must go darling, my apologies");
+  ///CRAZY PROFILE
+    } else if(profileCrazy === true){
+      $("#date-text-output").text("[Supul looks towards the sky as the clouds lazily part, revealing a full moon] OH! UUUUUHH, GOTTA GO! Sorry!!");
+  ///NORMAL PROFILE
+    } else if (profileNormal === true){
+      $("#date-text-output").text("[Brenda trips on the sidewalk and falls directly into a puddle in the street]");
     }
   }
 
 
-  function dateQuestion3(){
+  function dateResponse6(){
     ////DARK PROFILE
     if (profileDark === true && question2 === 1) {
-      dateResponse = "question3 DARK = DARK response";
+      $("#date-text-output").text(" ");
     } else if (profileDark === true && question2  === 2) {
-      dateResponse = "question2 CRAZY = DARK response";
+      $("#date-text-output").text(" ");
     } else if (profileDark === true && question2 === 3) {
       dateResponse = "question3 NORMAL = DARK response";
   ///CRAZY PROFILE
     } else if (profileCrazy === true && question2  === 1) {
-      dateResponse = "question3 DARK  = CRAZY response";
+      $("#date-text-output").text(" ");
     } else if(profileCrazy === true && question2  === 2) {
-      dateResponse = "question2 CRAZY = CRAZY response";
+      $("#date-text-output").text(" ");
     } else if(profileCrazy=== true && question2 === 3) {
-      dateResponse = "question2 NORMAL =  CRAZY response";
+      $("#date-text-output").text(" ");
   ///NORMAL PROFILE
     } else if (profileNormal === true && question2  === 1) {
-      dateResponse = "question2 DARK  = NORMAL response";
+      $("#date-text-output").text(" ");
     } else if(profileNormal === true && question2 === 2) {
-      dateResponse = "question2 CRAZY  = NORMALresponse";
+      $("#date-text-output").text(" ");
     } else if(profileNormal === true && question2 === 3) {
-      dateResponse = "question2 NORMAL = NORMAL response";
+      $("#date-text-output").text(" ");
     }
   }
 
-  function dateQuestion3(){
+  function dateResponse7(){
     ///DARK PROFILE
     if (rofileDark === true && question2 === 1) {
-    dateResponse= "question2 DARK = DARK response";
+      $("#date-text-output").text(" ");
     } else if (profileDark === true && question3  === 2){
-      dateResponse= "question2 CRAZY = DARK response";
+        $("#date-text-output").text(" ");
     } else if (profileDark === true && question3 === 3){
-      dateResponse = "question2 NORMAL = DARK response";
+        $("#date-text-output").text(" ");
   ///CRAZY PROFILE
     } else if (profileCrazy === true && question3 === 1) {
-      dateResponse = "question2 DARK  = CRAZY response";
+        $("#date-text-output").text(" ");
     } else if(rofileCrazy === true && question3 === 2){
-      dateResponse = "question2 CRAZY = CRAZY response";
+    $("#date-text-output").text(" ");
     } else if(profileCrazy=== true && question3 === 3) {
-      dateResponse = "question2 NORMAL =  CRAZY response";
+        $("#date-text-output").text(" ");
   ///NORMAL PROFILE
     } else if (profileNormal === true && question3 === 1){
-      dateResponse = "question2 DARK  = NORMAL response";
+      $("#date-text-output").text(" ");
     } else if(profileNormal === true && question3 === 2){
-      dateResponse = "question2 CRAZY  = NORMALresponse";
+        $("#date-text-output").text(" ");
     } else if(profileNormal === true && question3 === 3){
-      dateResponse = "question2 NORMAL = NORMAL response";
+      $("#date-text-output").text(" ");
     }
   }
 
 
   ///question3 branch 1
-  function dateQuestion4(){
+  function dateResponse8(){
     ////DARK PROFILE
     if (profileDark === true && question4 === 1) {
-      dateResponse = "question4 DARK = DARK response";
+      $("#date-text-output").text(" ");
     } else if (profileDark === true && question4  === 2){
-      dateResponse = "question4 CRAZY = DARK response";
+        $("#date-text-output").text(" ");
     } else if (profileDark === true && question4 === 3){
-      dateResponse = "question4 NORMAL = DARK response";
+        $("#date-text-output").text(" ");
   ///CRAZY PROFILE
     } else if (profileCrazy === true && question4  === 1) {
-      dateResponse = "question4 DARK  = CRAZY response";
+    $("#date-text-output").text(" ");
     } else if(profileCrazy === true && question4  === 2){
-      dateResponse= "question4 CRAZY = CRAZY response";
+      $("#date-text-output").text(" ");
       this.crazy += 1;
     } else if(qprofileCrazy=== true && question4 === 3) {
-      dateResponse = "question4 NORMAL =  CRAZY response";
+      $("#date-text-output").text(" ");
   ///NORMAL PROFILE
     } else if (profileNormal === true && question4  === 1){
-      dateResponse= "question4 DARK  = NORMAL response";
+      $("#date-text-output").text(" ");
     } else if(profileNormal === true && question4 === 2){
-      dateResponse= "question4 CRAZY  = NORMALresponse";
+      $("#date-text-output").text(" ");
     } else if(profileNormal === true && question4 === 3){
-      dateResponse= "question4 NORMAL = NORMAL response";
+    $("#date-text-output").text(" ");
       this.normal += 1;
     }
   }
 
-  function dateQuestion5(){
+  function dateResponse9(){
     ////DARK PROFILE
     if (profileDark === true && question5 === 1) {
-    dateResponse= "question4 DARK = DARK response";
+    $("#date-text-output").text(" ");
   } else if (profileDark === true && question5 === 2){
-      dateResponse= "question4 CRAZY = DARK response";
+      $("#date-text-output").text(" ");
     } else if (&& profileDark === true && question5 === 3){
-      dateResponse = "question4 NORMAL = DARK response";
+    $("#date-text-output").text(" ");
   ///CRAZY PROFILE
     } else if (profileCrazy === true && question5 === 1) {
-      dateResponse = "question4 DARK  = CRAZY response";
+        $("#date-text-output").text(" ");
     } else if(profileCrazy === true && question5 === 2){
-      dateResponse = "question4 CRAZY = CRAZY response";
+  $("#date-text-output").text(" ");
     } else if(profileCrazy=== true && question5 === 3) {
-      dateResponse = "question4 NORMAL =  CRAZY response";
+      $("#date-text-output").text(" ");
   ///NORMAL PROFILE
     } else if (profileNormal === true && question5 === 1){
-      dateResponse = "question4 DARK  = NORMAL response";
+      $("#date-text-output").text(" ");
     } else if(profileNormal === true && question5 === 2){
-      dateResponse = "question4 CRAZY  = NORMALresponse";
+    $("#date-text-output").text(" ");
     } else if(profileNormal === true && question5 === 3){
-      dateResponse = "question4 NORMAL = NORMAL response";
+    $("#date-text-output").text(" ");
     }
   }
 
 
   ///question3 branch 1
-  function dateQuestion6(){
+  function dateResponse10(){
     ////DARK PROFILE
     if (profileDark === true && question6 === 1) {
-      dateResponse = "question6 DARK = DARK response";
+  $("#date-text-output").text(" ");
     } else if (profileDark === true && question6  === 2){
-      dateResponse = "question6 CRAZY = DARK response";
+      $("#date-text-output").text(" ");
     } else if (profileDark === true && question6 === 3){
-      dateResponse = "question6 NORMAL = DARK response";
+    $("#date-text-output").text(" ");
   ///CRAZY PROFILE
     } else if (profileCrazy === true && question6  === 1) {
-      dateResponse = "question6 DARK  = CRAZY response";
+  $("#date-text-output").text(" ");
     } else if(profileCrazy === true && question6  === 2){
-      dateResponse= "question6 CRAZY = CRAZY response";
+      $("#date-text-output").text(" ");
     } else if(profileCrazy=== true && question6 === 3) {
-      dateResponse = "question6 NORMAL =  CRAZY response";
+  $("#date-text-output").text(" ");
   ///NORMAL PROFILE
     } else if (profileNormal === true && question6  === 1){
-      dateResponse= "question6 DARK  = NORMAL response";
+      $("#date-text-output").text(" ");
     } else if(profileNormal === true && question6 === 2){
-      dateResponse= "question6 CRAZY  = NORMALresponse";
+      $("#date-text-output").text(" ");
     } else if(profileNormal === true && question6 === 3){
-      dateResponse= "question6 NORMAL = NORMAL response";
+    $("#date-text-output").text(" ");
     }
   }
 
 
-  function dateQuestion7(){
+  function dateResponse11(){
     ////DARK PROFILE
     if (profileDark === true && question7 === 1) {
-    dateResponse= "question6 DARK = DARK response";
+    $("#date-text-output").text(" ");
   } else if (profileDark === true && question7 === 2){
-      dateResponse= "question6 CRAZY = DARK response";
+  $("#date-text-output").text(" ");
     } else if (profileDark === true && question7 === 3){
-      dateResponse = "question6 NORMAL = DARK response";
+    $("#date-text-output").text(" ");
   ///CRAZY PROFILE
     } else if (profileCrazy === true && question7 === 1) {
-      dateResponse = "question6 DARK  = CRAZY response";
+    $("#date-text-output").text(" ");
     } else if(profileCrazy === true && question7 === 2){
-      dateResponse = "question6 CRAZY = CRAZY response";
+    $("#date-text-output").text(" ");
     } else if(profileCrazy=== true && question7 === 3) {
-      dateResponse = "question6 NORMAL =  CRAZY response";
+  $("#date-text-output").text(" ");
   ///NORMAL PROFILE
     } else if (profileNormal === true && question7 === 1){
-      dateResponse = "question6 DARK  = NORMAL response";
+  $("#date-text-output").text(" ");
     } else if(profileNormal === true && question7 === 2){
-      dateResponse = "question6 CRAZY  = NORMALresponse";
+  $("#date-text-output").text(" ");
     } else if(profileNormal === true && question7 === 3){
-      dateResponse = "question6 NORMAL = NORMAL response";
+  $("#date-text-output").text(" ");
     }
   }
 
