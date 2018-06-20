@@ -435,68 +435,97 @@ $(document).ready(function(){
   // var question8 = 1;
   //
   //
-  function dateResonse1(){  //only one option
+
+var dutchessDateResponse0 = ["Of course darling, even before I moved to the Dark Lord’s Kingdom I was a creature of the night. I’m currently haunting the Old Farm Hotel between 11pm and sunrise. I don’t see many people these days but that is ok with me, I only need a few to survive. You should stay a night if you haven’t already, the decor is to die for!"];
+var dutchessDateResponse1 = ["Just another glass of wine for me, I'm on a all liquid diet."];
+var dutchessDateResponse2 = ["Well, I have a great penchant for candelabra, and they have let me do some interior decorating at the hotel when the nights are slow. I am also a collector of fine -red- wines, although unlike most I prefer a younger blend… [she gazes off into the distance apparently lost in this thought]"];
+var dutchessDateResponse3 = ["Ten years? The blink of an eye... Why I may be still sitting here in ten years..."];
+var dutchessDateResponse4 = ["[Dutchess gazes up at the sky as a colony of bats swoops by] I must go darling, my apologies"];
+var arrayOfDutchessDateResponse = [dutchessDateResponse0, dutchessDateResponse1, dutchessDateResponse2, dutchessDateResponse3, dutchessDateResponse4];
+
+var supulDateResponse0 = ["Aaaah what’s to tell?? I flip bottles and bounce drunks most of the time, but I also make a good deal with all the fresh meat I bring in from my hunts! The bartending is just to fill in the gaps. I live for the hunt!"];
+var supulDateResponse1 = ["Raw steak, as much blood as possible."];
+var supulDateResponse2 = ["YOU BETCHA! Did I mention that I love hunting? I am also a master taxidermist and decorated marathon runner!!! THINK YOU CAN KEEP UP?!?!"];
+var supulDateResponse3 = ["What?? Ten years? Time flys, who knows. One day you are the apex preditor, the next BLAMO!!!"];
+var supulDateResponse4 = ["[Supul looks towards the sky as the clouds lazily part, revealing a full moon] OH! UUUUUHH, GOTTA GO! Sorry!!"];
+var arrayOfsupulDateResponse = [supulDateResponse0, supulDateResponse1, supulDateResponse2,supulDateResponse3, supulDateResponse4];
+
+var brendaDateResponse0 = ["Oooooh you knooooow, I just work a boring nine to five over at the Wage Slave Industries. I got my degree in Wage Slavery, and the Dark Lord’s Kingdom has world class Wage Slavery! The work is fine, it’s the weirdos that get to me…"];
+var brendaDateResponse1 = ["Salad, no croutons."];
+var brendaDateResponse2 = ["Ooooh well you know, everyone and everything in this place so so strange and foreign, I basically just watch Netflix these days. Have you seen the Office??"];
+var brendaDateResponse3 = ["Well, I'm kinda hoping to get out of this town... maybe the way I got in, a masters abroad. Oh and kids, I want lots of kids."];
+var brendaDateResponse4 = ["[Brenda trips on the sidewalk and falls directly into a puddle in the street]"];
+var arrayOfbrendaDateResponse = [brendaDateResponse0, brendaDateResponse1, brendaDateResponse2, brendaDateResponse3, brendaDateResponse4];
+
+
+
+  function dateResonse0(){  //only one option
     if (profileDark === true) {
-      $("#date-text-output").text("Of course darling, even before I moved to the Dark Lord’s Kingdom I was a creature of the night. I’m currently haunting the Old Farm Hotel between 11pm and sunrise. I don’t see many people these days but that is ok with me, I only need a few to survive. You should stay a night if you haven’t already, the decor is to die for!");
+      $("#date-text-output").text(arrayOfDutchessDateResponse[0]);
   ///CRAZY PROFILE
     } else if (profileCrazy === true) {
-      $("#date-text-output").text("Aaaah what’s to tell?? I flip bottles and bounce drunks most of the time, but I also make a good deal with all the fresh meat I bring in from my hunts! The bartending is just to fill in the gaps. I live for the hunt!");
+      $("#date-text-output").text(arrayOfsupulDateResponse[0]);
   ///NORMAL PROFILE
     } else if (profileNormal === true){
-      $("#date-text-output").text("Oooooh you knooooow, I just work a boring nine to five over at the Wage Slave Industries. I got my degree in Wage Slavery, and the Dark Lord’s Kingdom has world class Wage Slavery! The work is fine, it’s the weirdos that get to me…");
+      $("#date-text-output").text(arrayOfbrendaDateResponse[0]);
+    }
+  }
+
+  function dateResponse1(){  //only one option
+    if (profileDark === true) {
+      $("#date-text-output").text(arrayOfDutchessDateResponse[1]);
+  ///CRAZY PROFILE
+    } else if (profileCrazy === true) {
+      $("#date-text-output").text(arrayOfsupulDateResponse[1]);
+  ///NORMAL PROFILE
+    } else if (profileNormal === true){
+      $("#date-text-output").text(arrayOfbrendaDateResponse[1]);
     }
   }
 
   function dateResponse2(){  //only one option
     if (profileDark === true) {
-      $("#date-text-output").text("Just another glass of wine for me, I'm on a all liquid diet.");
+      $("#date-text-output").text(arrayOfDutchessDateResponse[2]);
   ///CRAZY PROFILE
     } else if (profileCrazy === true) {
-      $("#date-text-output").text("Raw steak, as much blood as possible.");
+      $("#date-text-output").text(arrayOfsupulDateResponse[2]);
   ///NORMAL PROFILE
     } else if (profileNormal === true){
-      $("#date-text-output").text("Salad, no croutons.");
+      $("#date-text-output").text(arrayOfbrendaDateResponse[2]);
     }
   }
 
   function dateResponse3(){  //only one option
-    if (profileDark === true) {
-      $("#date-text-output").text("Well, I have a great penchant for candelabra, and they have let me do some interior decorating at the hotel when the nights are slow. I am also a collector of fine -red- wines, although unlike most I prefer a younger blend… [she gazes off into the distance apparently lost in this thought]");
+     if (profileDark === true){
+      $("#date-text-output").text(arrayOfDutchessDateResponse[3]);
   ///CRAZY PROFILE
-    } else if (profileCrazy === true) {
-      $("#date-text-output").text("YOU BETCHA! Did I mention that I love hunting? I am also a master taxidermist and decorated marathon runner!!! THINK YOU CAN KEEP UP?!?!");
+    } else if(profileCrazy === true){
+      $("#date-text-output").text(arrayOfsupulDateResponse[3]);
   ///NORMAL PROFILE
     } else if (profileNormal === true){
-      $("#date-text-output").text("Ooooh well you know, everyone and everything in this place so so strange and foreign, I basically just watch Netflix these days. Have you seen the Office??");
+      $("#date-text-output").text(arrayOfbrendaDateResponse[3]);
     }
   }
 
   function dateResponse4(){  //only one option
      if (profileDark === true){
-      $("#date-text-output").text("Ten years? The blink of an eye... Why I may be still sitting here in ten years...");
+      $("#date-text-output").text(arrayOfDutchessDateResponse[4]);
   ///CRAZY PROFILE
     } else if(profileCrazy === true){
-      $("#date-text-output").text("What?? Ten years? Time flys, who knows. One day you are the apex preditor, the next BLAMO!!!");
+      $("#date-text-output").text(arrayOfsupulDateResponse[4]);
   ///NORMAL PROFILE
     } else if (profileNormal === true){
-      $("#date-text-output").text("Well, I'm kinda hoping to get out of this town... maybe the way I got in, a masters abroad. Oh and kids, I want lots of kids.");
-    }
-  }
-
-  function dateResponse5(){  //only one option
-     if (profileDark === true){
-      $("#date-text-output").text("[Dutchess gazes up at the sky as a colony of bats swoops by] I must go darling, my apologies");
-  ///CRAZY PROFILE
-    } else if(profileCrazy === true){
-      $("#date-text-output").text("[Supul looks towards the sky as the clouds lazily part, revealing a full moon] OH! UUUUUHH, GOTTA GO! Sorry!!");
-  ///NORMAL PROFILE
-    } else if (profileNormal === true){
-      $("#date-text-output").text("[Brenda trips on the sidewalk and falls directly into a puddle in the street]");
+      $("#date-text-output").text(arrayOfbrendaDateResponse[4]);
     }
   }
 
 
-  function dateResponse6(){
+
+
+////
+
+
+  function dateResponse5(){
     ////DARK PROFILE
     if (profileDark === true && question2 === 1) {
       $("#date-text-output").text(" ");
@@ -521,7 +550,11 @@ $(document).ready(function(){
     }
   }
 
-  function dateResponse7(){
+
+
+
+
+  function dateResponse6(){
     ///DARK PROFILE
     if (rofileDark === true && question2 === 1) {
       $("#date-text-output").text(" ");
@@ -548,7 +581,7 @@ $(document).ready(function(){
 
 
   ///question3 branch 1
-  function dateResponse8(){
+  function dateResponse7(){
     ////DARK PROFILE
     if (profileDark === true && question4 === 1) {
       $("#date-text-output").text(" ");
@@ -575,7 +608,7 @@ $(document).ready(function(){
     }
   }
 
-  function dateResponse9(){
+  function dateResponse8(){
     ////DARK PROFILE
     if (profileDark === true && question5 === 1) {
     $("#date-text-output").text(" ");
@@ -602,7 +635,7 @@ $(document).ready(function(){
 
 
   ///question3 branch 1
-  function dateResponse10(){
+  function dateResponse9(){
     ////DARK PROFILE
     if (profileDark === true && question6 === 1) {
   $("#date-text-output").text(" ");
@@ -628,7 +661,7 @@ $(document).ready(function(){
   }
 
 
-  function dateResponse11(){
+  function dateResponse10(){
     ////DARK PROFILE
     if (profileDark === true && question7 === 1) {
     $("#date-text-output").text(" ");
