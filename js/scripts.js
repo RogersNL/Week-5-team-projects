@@ -435,230 +435,200 @@ $(document).ready(function(){
   // var question8 = 1;
   //
   //
-  // Person.prototype.dateQuestion1 = function(){
-  //   if (question1 === 1 && profileDark === true) {
-  //     dateResponse = "Of course darling, even before I moved to the Dark Lord’s Kingdom I was a creature of the night. I’m currently haunting the Old Farm Hotel between 11pm and sunrise. I don’t see many people these days but that is ok with me, I only need a few to survive. You should stay a night if you haven’t already, the decor is to die for!";
-  //   } else if (question1 === 2 && profileDark === true){
-  //     dateResponse = "Well, I have a great penchant for candelabra, and they have let me do some interior decorating at the hotel when the nights are slow. I am also a collector of fine -red- wines, although unlike most I prefer a younger blend… [she gazes off into the distance apparently lost in this thought.";
-  // ///CRAZY PROFILE
-  //   } else if (question1 === 1 && profileCrazy === true) {
-  //     dateResponse = "Aaaah what’s to tell?? I flip bottles and bounce drunks most of the time, but I also make a good deal with all the fresh meat I bring in from my hunts! The bartending is just to fill in the gaps. I live for the hunt!";
-  //   } else if(question1 === 2 && profileCrazy === true){
-  //     dateResponse= "YOU BETCHA! Did I mention that I love hunting? I am also a master taxidermist and decorated marathon runner!!! THINK YOU CAN KEEP UP?!?!";
-  // ///NORMAL PROFILE
-  //   } else if (question1 === 1 && profileNormal === true){
-  //     dateResponse= "Oooooh you knooooow, I just work a boring nine to five over at the Wage Slave Industries. I got my degree in Wage Slavery, and the Dark Lord’s Kingdom has world class Wage Slavery! The work is fine, it’s the weirdos that get to me…";
-  //   } else if(question1 === 2 && profileNormal === true){
-  //     dateResponse= "Ooooh well you know, everyone and everything in this place so so strange and foreign, I basically just watch Netflix these days. Have you seen the Office??";
-  //   }
-  // }
-  //
-  // ///question branch 1
-  // Person.prototype.dateQuestion2_firstPath = function(){
-  //   ////DARK PROFILE
-  //   if (question1 === 1 && profileDark === true && question2 === 1) {
-  //     dateResponse = "question2 DARK = DARK response";
-  //     this.dark +=1;
-  //   } else if (question1 === 1 && profileDark === true && question2  === 2){
-  //     dateResponse = "question2 CRAZY = DARK response";
-  //
-  //   } else if (question1 === 1 && profileDark === true && question2 === 3){
-  //     dateResponse = "question2 NORMAL = DARK response";
-  // ///CRAZY PROFILE
-  //   } else if (question1 === 1 && profileCrazy === true && question2  === 1) {
-  //     dateResponse = "question2 DARK  = CRAZY response";
-  //   } else if(question1 === 1 && profileCrazy === true && question2  === 2){
-  //     dateResponse= "question2 CRAZY = CRAZY response";
-  //     this.crazy += 1;
-  //   } else if(question1 === 1 && profileCrazy=== true && question2 === 3) {
-  //     dateResponse = "question2 NORMAL =  CRAZY response";
-  // ///NORMAL PROFILE
-  //   } else if (question1 === 1 && profileNormal === true && question2  === 1){
-  //     dateResponse= "question2 DARK  = NORMAL response";
-  //   } else if(question1 === 1 && profileNormal === true && question2 === 2){
-  //     dateResponse= "question2 CRAZY  = NORMALresponse";
-  //   } else if(question1 === 1 && profileNormal === true && question2 === 3){
-  //     dateResponse= "question2 NORMAL = NORMAL response";
-  //     this.normal += 1;
-  //   }
-  // }
-  //
-  // ///question branch 2
-  // Person.prototype.dateQuestion2_secondPath = function(){
-  //   ////DARK PROFILE
-  //   if (question1 === 2 && profileDark === true && question2 === 1) {
-  //   dateResponse= "question2 DARK = DARK response";
-  //     this.dark +=1;
-  //   } else if (question1 === 2 && profileDark === true && question2  === 2){
-  //     dateResponse= "question2 CRAZY = DARK response";
-  //   } else if (question1 === 2 && profileDark === true && question2 === 3){
-  //     dateResponse = "question2 NORMAL = DARK response";
-  // ///CRAZY PROFILE
-  //   } else if (question1 === 2 && profileCrazy === true && question2  === 1) {
-  //     dateResponse = "question2 DARK  = CRAZY response";
-  //   } else if(question1 === 2 && profileCrazy === true && question2  === 2){
-  //     dateResponse = "question2 CRAZY = CRAZY response";
-  //     this.crazy += 1;
-  //   } else if(question1 === 2 && profileCrazy=== true && question2 === 3) {
-  //     dateResponse = "question2 NORMAL =  CRAZY response";
-  // ///NORMAL PROFILE
-  //   } else if (question1 === 2 && profileNormal === true && question2  === 1){
-  //     dateResponse = "question2 DARK  = NORMAL response";
-  //   } else if(question1 === 2 && profileNormal === true && question2 === 2){
-  //     dateResponse = "question2 CRAZY  = NORMALresponse";
-  //   } else if(question1 === 2 && profileNormal === true && question2 === 3){
-  //     dateResponse = "question2 NORMAL = NORMAL response";
-  //     this.normal += 1;
-  //   }
-  // }
-  //
-  // //question triggering differnt branch
-  // Person.prototype.dateQuestion3 = function(){
-  //     if (question3  === 1) {
-  //       dateResponse = "branch 1 response";
-  //     } else if (question3 === 2){
-  //       dateResponse = "branch 2 response";
-  // }
-  // }
-  //
-  // ///question3 branch 1
-  // Person.prototype.dateQuestion4_firstPath = function(){
-  //   ////DARK PROFILE
-  //   if (question3 === 1 && profileDark === true && question4 === 1) {
-  //     dateResponse = "question4 DARK = DARK response";
-  //     this.dark +=1;
-  //   } else if (question3 === 1 && profileDark === true && question4  === 2){
-  //     dateResponse = "question4 CRAZY = DARK response";
-  //
-  //   } else if (question3 === 1 && profileDark === true && question4 === 3){
-  //     dateResponse = "question4 NORMAL = DARK response";
-  // ///CRAZY PROFILE
-  //   } else if (question3 === 1 && profileCrazy === true && question4  === 1) {
-  //     dateResponse = "question4 DARK  = CRAZY response";
-  //   } else if(question3 === 1 && profileCrazy === true && question4  === 2){
-  //     dateResponse= "question4 CRAZY = CRAZY response";
-  //     this.crazy += 1;
-  //   } else if(question3 === 1 && profileCrazy=== true && question4 === 3) {
-  //     dateResponse = "question4 NORMAL =  CRAZY response";
-  // ///NORMAL PROFILE
-  //   } else if (question3 === 1 && profileNormal === true && question4  === 1){
-  //     dateResponse= "question4 DARK  = NORMAL response";
-  //   } else if(question3 === 1 && profileNormal === true && question4 === 2){
-  //     dateResponse= "question4 CRAZY  = NORMALresponse";
-  //   } else if(question3 === 1 && profileNormal === true && question4 === 3){
-  //     dateResponse= "question4 NORMAL = NORMAL response";
-  //     this.normal += 1;
-  //   }
-  // }
-  //
-  // ///question3 branch 2
-  // Person.prototype.dateQuestion4_secondPath = function(){
-  //   ////DARK PROFILE
-  //   if (question3 === 2 && profileDark === true && question4 === 1) {
-  //   dateResponse= "question4 DARK = DARK response";
-  //     this.dark +=1;
-  //   } else if (question3 === 2 && profileDark === true && question4  === 2){
-  //     dateResponse= "question4 CRAZY = DARK response";
-  //   } else if (question3 === 2 && profileDark === true && question4 === 3){
-  //     dateResponse = "question4 NORMAL = DARK response";
-  // ///CRAZY PROFILE
-  //   } else if (question3 === 2 && profileCrazy === true && question4  === 1) {
-  //     dateResponse = "question4 DARK  = CRAZY response";
-  //   } else if(question3 === 2 && profileCrazy === true && question4  === 2){
-  //     dateResponse = "question4 CRAZY = CRAZY response";
-  //     this.crazy += 1;
-  //   } else if(question3 === 2 && profileCrazy=== true && question4 === 3) {
-  //     dateResponse = "question4 NORMAL =  CRAZY response";
-  // ///NORMAL PROFILE
-  //   } else if (question3 === 2 && profileNormal === true && question4  === 1){
-  //     dateResponse = "question4 DARK  = NORMAL response";
-  //   } else if(question3 === 2 && profileNormal === true && question4 === 2){
-  //     dateResponse = "question4 CRAZY  = NORMALresponse";
-  //   } else if(question3 === 2 && profileNormal === true && question4 === 3){
-  //     dateResponse = "question4 NORMAL = NORMAL response";
-  //     this.normal += 1;
-  //   }
-  // }
-  //
-  // //question triggering differnt branch
-  // Person.prototype.dateQuestion5 = function(){
-  //     if (question5  === 1) {
-  //       dateResponse = "branch 1 response";
-  //     } else if (question5 === 2){
-  //       dateResponse = "branch 2 response";
-  // }
-  // }
-  //
-  // ///question3 branch 1
-  // Person.prototype.dateQuestion6_firstPath = function(){
-  //   ////DARK PROFILE
-  //   if (question5 === 1 && profileDark === true && question6 === 1) {
-  //     dateResponse = "question6 DARK = DARK response";
-  //     this.dark +=1;
-  //   } else if (question5 === 1 && profileDark === true && question6  === 2){
-  //     dateResponse = "question6 CRAZY = DARK response";
-  //
-  //   } else if (question5 === 1 && profileDark === true && question6 === 3){
-  //     dateResponse = "question6 NORMAL = DARK response";
-  // ///CRAZY PROFILE
-  //   } else if (question5 === 1 && profileCrazy === true && question6  === 1) {
-  //     dateResponse = "question6 DARK  = CRAZY response";
-  //   } else if(question5 === 1 && profileCrazy === true && question6  === 2){
-  //     dateResponse= "question6 CRAZY = CRAZY response";
-  //     this.crazy += 1;
-  //   } else if(question5 === 1 && profileCrazy=== true && question6 === 3) {
-  //     dateResponse = "question6 NORMAL =  CRAZY response";
-  // ///NORMAL PROFILE
-  //   } else if (question5 === 1 && profileNormal === true && question6  === 1){
-  //     dateResponse= "question6 DARK  = NORMAL response";
-  //   } else if(question5 === 1 && profileNormal === true && question6 === 2){
-  //     dateResponse= "question6 CRAZY  = NORMALresponse";
-  //   } else if(question5 === 1 && profileNormal === true && question6 === 3){
-  //     dateResponse= "question6 NORMAL = NORMAL response";
-  //     this.normal += 1;
-  //   }
-  // }
-  //
-  // ///question5 branch 2
-  // Person.prototype.dateQuestion6_secondPath = function(){
-  //   ////DARK PROFILE
-  //   if (question5 === 2 && profileDark === true && question6 === 1) {
-  //   dateResponse= "question6 DARK = DARK response";
-  //     this.dark +=1;
-  //   } else if (question5 === 2 && profileDark === true && question6  === 2){
-  //     dateResponse= "question6 CRAZY = DARK response";
-  //   } else if (question5 === 2 && profileDark === true && question6 === 3){
-  //     dateResponse = "question6 NORMAL = DARK response";
-  // ///CRAZY PROFILE
-  //   } else if (question5 === 2 && profileCrazy === true && question6  === 1) {
-  //     dateResponse = "question6 DARK  = CRAZY response";
-  //   } else if(question5 === 2 && profileCrazy === true && question6  === 2){
-  //     dateResponse = "question6 CRAZY = CRAZY response";
-  //     this.crazy += 1;
-  //   } else if(question5 === 2 && profileCrazy=== true && question6 === 3) {
-  //     dateResponse = "question6 NORMAL =  CRAZY response";
-  // ///NORMAL PROFILE
-  //   } else if (question5 === 2 && profileNormal === true && question6  === 1){
-  //     dateResponse = "question6 DARK  = NORMAL response";
-  //   } else if(question5 === 2 && profileNormal === true && question6 === 2){
-  //     dateResponse = "question6 CRAZY  = NORMALresponse";
-  //   } else if(question5 === 2 && profileNormal === true && question6 === 3){
-  //     dateResponse = "question6 NORMAL = NORMAL response";
-  //     this.normal += 1;
-  //   }
-  // }
-  //
-  // //profile1.dateQuestion1();
-  // //profile1.dateQuestion2_firstPath();
-  // // profile1.dateQuestion2_secondPath();
-  // // profile1.dateQuestion3();
-  // // // profile1.dateQuestion4_secondPath();
-  // // profile1.dateQuestion4_firstPath();
-  // profile1.dateQuestion5();
-  // profile1.dateQuestion6_secondPath();
-  //
-  //   document.getElementById("story").innerHTML = dateResponse;
-  //   document.getElementById("story1").innerHTML = "Hello";
+  function dateQuestion1(){  //only one option
+    if (profileDark === true) {
+      dateResponse = "Of course darling, even before I moved to the Dark Lord’s Kingdom I was a creature of the night. I’m currently haunting the Old Farm Hotel between 11pm and sunrise. I don’t see many people these days but that is ok with me, I only need a few to survive. You should stay a night if you haven’t already, the decor is to die for!";
+  ///CRAZY PROFILE
+    } else if (profileCrazy === true) {
+      dateResponse = "Aaaah what’s to tell?? I flip bottles and bounce drunks most of the time, but I also make a good deal with all the fresh meat I bring in from my hunts! The bartending is just to fill in the gaps. I live for the hunt!";
+  ///NORMAL PROFILE
+    } else if (profileNormal === true){
+      dateResponse = "Oooooh you knooooow, I just work a boring nine to five over at the Wage Slave Industries. I got my degree in Wage Slavery, and the Dark Lord’s Kingdom has world class Wage Slavery! The work is fine, it’s the weirdos that get to me…";
+    }
+  }
+
+  function dateQuestion2(){  //only one option
+     if (profileDark === true){
+      dateResponse = "Well, I have a great penchant for candelabra, and they have let me do some interior decorating at the hotel when the nights are slow. I am also a collector of fine -red- wines, although unlike most I prefer a younger blend… [she gazes off into the distance apparently lost in this thought.";
+  ///CRAZY PROFILE
+    } else if(profileCrazy === true){
+      dateResponse = "YOU BETCHA! Did I mention that I love hunting? I am also a master taxidermist and decorated marathon runner!!! THINK YOU CAN KEEP UP?!?!";
+  ///NORMAL PROFILE
+    } else if (profileNormal === true){
+      dateResponse = "Oooooh you knooooow, I just work a boring nine to five over at the Wage Slave Industries. I got my degree in Wage Slavery, and the Dark Lord’s Kingdom has world class Wage Slavery! The work is fine, it’s the weirdos that get to me…";
+    }
+  }
+
+
+  function dateQuestion3(){
+    ////DARK PROFILE
+    if (profileDark === true && question2 === 1) {
+      dateResponse = "question3 DARK = DARK response";
+    } else if (profileDark === true && question2  === 2) {
+      dateResponse = "question2 CRAZY = DARK response";
+    } else if (profileDark === true && question2 === 3) {
+      dateResponse = "question3 NORMAL = DARK response";
+  ///CRAZY PROFILE
+    } else if (profileCrazy === true && question2  === 1) {
+      dateResponse = "question3 DARK  = CRAZY response";
+    } else if(profileCrazy === true && question2  === 2) {
+      dateResponse = "question2 CRAZY = CRAZY response";
+    } else if(profileCrazy=== true && question2 === 3) {
+      dateResponse = "question2 NORMAL =  CRAZY response";
+  ///NORMAL PROFILE
+    } else if (profileNormal === true && question2  === 1) {
+      dateResponse = "question2 DARK  = NORMAL response";
+    } else if(profileNormal === true && question2 === 2) {
+      dateResponse = "question2 CRAZY  = NORMALresponse";
+    } else if(profileNormal === true && question2 === 3) {
+      dateResponse = "question2 NORMAL = NORMAL response";
+    }
+  }
+
+  function dateQuestion3(){
+    ///DARK PROFILE
+    if (rofileDark === true && question2 === 1) {
+    dateResponse= "question2 DARK = DARK response";
+    } else if (profileDark === true && question3  === 2){
+      dateResponse= "question2 CRAZY = DARK response";
+    } else if (profileDark === true && question3 === 3){
+      dateResponse = "question2 NORMAL = DARK response";
+  ///CRAZY PROFILE
+    } else if (profileCrazy === true && question3 === 1) {
+      dateResponse = "question2 DARK  = CRAZY response";
+    } else if(rofileCrazy === true && question3 === 2){
+      dateResponse = "question2 CRAZY = CRAZY response";
+    } else if(profileCrazy=== true && question3 === 3) {
+      dateResponse = "question2 NORMAL =  CRAZY response";
+  ///NORMAL PROFILE
+    } else if (profileNormal === true && question3 === 1){
+      dateResponse = "question2 DARK  = NORMAL response";
+    } else if(profileNormal === true && question3 === 2){
+      dateResponse = "question2 CRAZY  = NORMALresponse";
+    } else if(profileNormal === true && question3 === 3){
+      dateResponse = "question2 NORMAL = NORMAL response";
+    }
+  }
+
+
+  ///question3 branch 1
+  function dateQuestion4(){
+    ////DARK PROFILE
+    if (profileDark === true && question4 === 1) {
+      dateResponse = "question4 DARK = DARK response";
+    } else if (profileDark === true && question4  === 2){
+      dateResponse = "question4 CRAZY = DARK response";
+    } else if (profileDark === true && question4 === 3){
+      dateResponse = "question4 NORMAL = DARK response";
+  ///CRAZY PROFILE
+    } else if (profileCrazy === true && question4  === 1) {
+      dateResponse = "question4 DARK  = CRAZY response";
+    } else if(profileCrazy === true && question4  === 2){
+      dateResponse= "question4 CRAZY = CRAZY response";
+      this.crazy += 1;
+    } else if(qprofileCrazy=== true && question4 === 3) {
+      dateResponse = "question4 NORMAL =  CRAZY response";
+  ///NORMAL PROFILE
+    } else if (profileNormal === true && question4  === 1){
+      dateResponse= "question4 DARK  = NORMAL response";
+    } else if(profileNormal === true && question4 === 2){
+      dateResponse= "question4 CRAZY  = NORMALresponse";
+    } else if(profileNormal === true && question4 === 3){
+      dateResponse= "question4 NORMAL = NORMAL response";
+      this.normal += 1;
+    }
+  }
+
+  function dateQuestion5(){
+    ////DARK PROFILE
+    if (profileDark === true && question5 === 1) {
+    dateResponse= "question4 DARK = DARK response";
+  } else if (profileDark === true && question5 === 2){
+      dateResponse= "question4 CRAZY = DARK response";
+    } else if (&& profileDark === true && question5 === 3){
+      dateResponse = "question4 NORMAL = DARK response";
+  ///CRAZY PROFILE
+    } else if (profileCrazy === true && question5 === 1) {
+      dateResponse = "question4 DARK  = CRAZY response";
+    } else if(profileCrazy === true && question5 === 2){
+      dateResponse = "question4 CRAZY = CRAZY response";
+    } else if(profileCrazy=== true && question5 === 3) {
+      dateResponse = "question4 NORMAL =  CRAZY response";
+  ///NORMAL PROFILE
+    } else if (profileNormal === true && question5 === 1){
+      dateResponse = "question4 DARK  = NORMAL response";
+    } else if(profileNormal === true && question5 === 2){
+      dateResponse = "question4 CRAZY  = NORMALresponse";
+    } else if(profileNormal === true && question5 === 3){
+      dateResponse = "question4 NORMAL = NORMAL response";
+    }
+  }
+
+
+  ///question3 branch 1
+  function dateQuestion6(){
+    ////DARK PROFILE
+    if (profileDark === true && question6 === 1) {
+      dateResponse = "question6 DARK = DARK response";
+    } else if (profileDark === true && question6  === 2){
+      dateResponse = "question6 CRAZY = DARK response";
+    } else if (profileDark === true && question6 === 3){
+      dateResponse = "question6 NORMAL = DARK response";
+  ///CRAZY PROFILE
+    } else if (profileCrazy === true && question6  === 1) {
+      dateResponse = "question6 DARK  = CRAZY response";
+    } else if(profileCrazy === true && question6  === 2){
+      dateResponse= "question6 CRAZY = CRAZY response";
+    } else if(profileCrazy=== true && question6 === 3) {
+      dateResponse = "question6 NORMAL =  CRAZY response";
+  ///NORMAL PROFILE
+    } else if (profileNormal === true && question6  === 1){
+      dateResponse= "question6 DARK  = NORMAL response";
+    } else if(profileNormal === true && question6 === 2){
+      dateResponse= "question6 CRAZY  = NORMALresponse";
+    } else if(profileNormal === true && question6 === 3){
+      dateResponse= "question6 NORMAL = NORMAL response";
+    }
+  }
+
+
+  function dateQuestion7(){
+    ////DARK PROFILE
+    if (profileDark === true && question7 === 1) {
+    dateResponse= "question6 DARK = DARK response";
+  } else if (profileDark === true && question7 === 2){
+      dateResponse= "question6 CRAZY = DARK response";
+    } else if (profileDark === true && question7 === 3){
+      dateResponse = "question6 NORMAL = DARK response";
+  ///CRAZY PROFILE
+    } else if (profileCrazy === true && question7 === 1) {
+      dateResponse = "question6 DARK  = CRAZY response";
+    } else if(profileCrazy === true && question7 === 2){
+      dateResponse = "question6 CRAZY = CRAZY response";
+    } else if(profileCrazy=== true && question7 === 3) {
+      dateResponse = "question6 NORMAL =  CRAZY response";
+  ///NORMAL PROFILE
+    } else if (profileNormal === true && question7 === 1){
+      dateResponse = "question6 DARK  = NORMAL response";
+    } else if(profileNormal === true && question7 === 2){
+      dateResponse = "question6 CRAZY  = NORMALresponse";
+    } else if(profileNormal === true && question7 === 3){
+      dateResponse = "question6 NORMAL = NORMAL response";
+    }
+  }
+
+  //profile1.dateQuestion1();
+  //profile1.dateQuestion2_firstPath();
+  // profile1.dateQuestion2_secondPath();
+  // profile1.dateQuestion3();
+  // // profile1.dateQuestion4_secondPath();
+  // profile1.dateQuestion4_firstPath();
+  profile1.dateQuestion5();
+  profile1.dateQuestion6_secondPath();
+
+    document.getElementById("story").innerHTML = dateResponse;
+    document.getElementById("story1").innerHTML = "Hello";
+
   //
   //
   //
