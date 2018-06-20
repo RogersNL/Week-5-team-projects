@@ -1,10 +1,74 @@
+.intro-page{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+text-align: center;
+font-family: 'Eater', cursive;
+font-weight: 600;
+color:#dd2424;
+font-size: 82px;
+margin-top: 50%;
+}
+
+#sign-up {
+  background-color: #dd2424;
+  border-color: #dd2424 ;
+  font-family: 'Amatic SC', cursive;
+  font-weight: 600;
+  font-size: 24px;
+  color:#171714;
+  padding: 1.25em;
+  border-radius: 12%;
+  margin-right: 50%;
+  margin-left: 40%;
+  margin-top: 15px;
+  opacity: 0.5;
+}
+
+#sign-up:hover {
+  opacity:1;
+  cursor:crosshair;
+}
+body {
+  background-image: url(../img/sparks.gif);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+#create-profile {
+  margin-top: 25%;
+  font-family: 'Amatic SC', cursive;
+  font-weight: 700;
+  color: #292F36;
+  font-size: 24px;
+  background-color: #FB4D3D;
+  border-color: #FB4D3D;
+}
+
+
+
+#submit-head h2 {
+color: #292F36;
+text-align: center;
+font-size: 52px;
+
+}
+#submit-head{
+  background-color: #FB4D3D;
+  border-bottom: 2px dashed #071013;
+}
+
+
 img {
   margin-top: 20px;
   margin-bottom: 20px;
   width: 100%;
 }
 .initial-hidden {
-  /* display:none; */
+   display:none;
 }
 .player-message {
   float: right;

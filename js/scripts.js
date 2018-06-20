@@ -190,6 +190,7 @@ var arrayOfResponses = [playerResponses1, playerResponses2, playerResponses3, pl
 
 $(document).ready(function(){
   $("#sign-up").click(function() {
+    $(".header").hide();
     $("#sign-up").hide();
     $("#create-profile").fadeIn();
   })
