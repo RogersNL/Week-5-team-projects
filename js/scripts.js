@@ -65,7 +65,7 @@ function messengingSequence (name, messageNumber, arrayNames, arrayPerson0, arra
     $("#" + name + "-form-" + messageNumber).hide();
     setTimeout(function(){$("#" + name + "-form-" + (messageNumber + 1)).show()}, 2000);
     allResponses (messageNum, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
-    if (messageNumber === 5)
+    if (messageNumber === 5) {
       dateDutchess = false;
       dateSupul = false;
       dateBrenda = false;
@@ -75,7 +75,10 @@ function messengingSequence (name, messageNumber, arrayNames, arrayPerson0, arra
         setTimeout(function(){$("#date-Dutchess").click(function(){
           Player.likeScore = dutchessScore;
           $("#profiles").empty();
+          $("#date-div").show();
           dateDutchess = true;
+          showText("#date-text", dateGardenText[0], 0, 25);
+          dateSequenceDutchess();
         })}, 3100);
       } else if (name === "Supul") {
         $("#" + name + "-form-" + messageNumber).hide();
@@ -83,7 +86,10 @@ function messengingSequence (name, messageNumber, arrayNames, arrayPerson0, arra
         setTimeout(function(){$("#date-Supul").click(function(){
           Player.likeScore = supulScore;
           $("#profiles").empty();
+          $("#date-div").show();
           dateSupul = true;
+          showText("#date-text", dateGardenText[0], 0, 25);
+          dateSequenceSupul();
         })}, 3100);
       } else if (name === "Brenda") {
         $("#" + name + "-form-" + messageNumber).hide();
@@ -91,9 +97,13 @@ function messengingSequence (name, messageNumber, arrayNames, arrayPerson0, arra
         setTimeout(function(){$("#date-Brenda").click(function(){
           Player.likeScore = brendaScore;
           $("#profiles").empty();
+          $("#date-div").show();
           dateBrenda = true;
+          showText("#date-text", dateGardenText[0], 0, 25);
+          dateSequenceBrenda();
         })}, 3100);
       }
+    }
   });
 }
 function allResponses (messageNumber) {
@@ -398,25 +408,137 @@ function showText(target, message, index, interval) {
     $(target).append(message[index++]);
     setTimeout(function () { showText(target, message, index, interval); }, interval);
   }
-}
-
-function dateText(aString) {
+};
+function createDateButtons (){
   for (index = 0; index < 16; index++)
   {
-    $("#date-button").append("<button class='btn' id='the-date-button" + index + "' type='click'>Continue</button>")
-    $("the-date-button" + index).click(function(){
-      $("the-date-button" + index).hide();
-      $("the-date-button" + (index + 1).show();
-    });
+    $("#date-button").append("<div class='the-date-button-div" + index + "'><button class='btn btn-danger' id='the-date-button" + index + "'type='button'>Continue</button></div>");
   }
-  showText("#date-text", aString, 0, 75)
-  $("button#the-date-button").click(function(){
-    $("#date-text").text("");
-    showText("#")
-  });
 
+};
+function playerChoice(singleWord1, singleWord2, singleWord3, string1, string2, string3){
+  $("#date-text").append("<div class='choice1'>" + singleWord1 + "</div>" +
+                         "<div class='choice2'>" + singleWord2 + "</div>" +
+                         "<div class='choice3'>" + singleWord3 + "</div>"
+            );
+
+  var message1 = string1;
+  var message2 = string2;
+  var message3 = string3;
+  $(".choice1").click(function(){
+    $(".choice1").hide();
+    $(".choice2").hide();
+    $(".choice3").hide();
+    showText("#date-text", message1, 0, 25);
+  });
+  $(".choice2").click(function(){
+    $(".choice1").hide();
+    $(".choice2").hide();
+    $(".choice3").hide();
+    showText("#date-text", message2, 0, 25);
+  });
+  $(".choice3").click(function(){
+    $(".choice1").hide();
+    $(".choice2").hide();
+    $(".choice3").hide();
+    showText("#date-text", message3, 0, 25);
+  });
 }
 
+function dateText(aString, index, whichDate) {
+  var dialogue = aString
+  $("#the-date-button" + index).click(function(){
+    $("#date-text").text("");
+    $(".the-date-button-div" + index).hide();
+    setTimeout(function(){$(".the-date-button-div" + (index + 1)).show()}, 5000);
+    showText("#date-text", dialogue, 0, 25);
+    if(index === 2 && dateDutchess === true) {
+      playerChoice("Oblivious", "Shocked", "Polite", playerDutchessDateResponses0[0], playerDutchessDateResponses0[1], playerDutchessDateResponses0[2]);
+    } else if (index === 2 && dateSupul === true) {
+      playerChoice("Perplexed", "Shocked", "Sad", playerSupulDateResponses0[0], playerSupulDateResponses0[1], playerSupulDateResponses0[2]);
+    } else if (index === 2 && dateBrenda === true) {
+      playerChoice("Hesitant", "Dismissive", "Patronizing", playerBrendaDateResponses0[0], playerBrendaDateResponses0[1], playerBrendaDateResponses0[2]);
+    } else if (index === 5 && dateDutchess === true) {
+      playerChoice("Steak", "Fettuccine Alfredo", "Salad", "Steak", "Fettuccine Alfredo", "Salad");
+    } else if (index === 5 && dateSupul === true) {
+      playerChoice("Steak", "Fettuccine Alfredo", "Salad", "Steak", "Fettuccine Alfredo", "Salad");
+    } else if (index === 5 && dateBrenda === true) {
+      playerChoice("Steak", "Fettuccine Alfredo", "Salad", "Steak", "Fettuccine Alfredo", "Salad");
+    } else if (index === 6 && dateDutchess === true) {
+      playerChoice("Concerned", "Impressed", "Joking", playerDutchessDateResponses1[0], playerDutchessDateResponses1[1], playerDutchessDateResponses1[2]);
+    } else if (index === 6 && dateSupul === true) {
+      playerChoice("Disgusted", "Annoyed", "Joking", playerSupulDateResponses1[0], playerSupulDateResponses1[1], playerSupulDateResponses1[2]);
+    } else if (index === 6 && dateBrenda === true) {
+      playerChoice("Impolite", "Impressed", "Clueless", playerBrendaDateResponses1[0], playerBrendaDateResponses1[1], playerBrendaDateResponses1[2]);
+    } else if (index === 9 && dateDutchess === true) {
+      playerChoice("Oblivious", "Impressed", "Hesitant", playerDutchessDateResponses2[0], playerDutchessDateResponses2[1], playerDutchessDateResponses2[2]);
+    } else if (index === 9 && dateSupul === true) {
+      playerChoice("Boastful", "Reluctant", "Relive old memory", playerSupulDateResponses2[0], playerSupulDateResponses2[1], playerSupulDateResponses2[2]);
+    } else if (index === 9 && dateBrenda === true) {
+      playerChoice("Oblivious", "Uninformed", "Honest", playerBrendaDateResponses2[0], playerBrendaDateResponses2[1], playerBrendaDateResponses2[2]);
+    } else if (index === 12 && dateDutchess === true) {
+      playerChoice("Impolite", "Complimentary", "Confused", playerDutchessDateResponses3[0], playerDutchessDateResponses3[1], playerDutchessDateResponses3[2]);
+    } else if (index === 12 && dateSupul === true) {
+      playerChoice("Concerned", "Boastful", "Confident", playerSupulDateResponses3[0], playerSupulDateResponses3[1], playerSupulDateResponses3[2]);
+    } else if (index === 12 && dateBrenda === true) {
+      playerChoice("Curious", "Dismissive", "Clueless", playerBrendaDateResponses3[0], playerBrendaDateResponses3[1], playerBrendaDateResponses3[2]);
+    }
+  });
+};
+function dateSequenceDutchess(){
+  dateText(playerDateQuestions[0], 0, true);
+  dateText(dutchessDateResponse0[0], 1, true);
+  dateText("", 2, true)
+  dateText(dateGardenText[1], 3, true);
+  dateText(dutchessDateResponse1[0], 4, true);
+  dateText("", 5, true);
+  dateText("", 6, true);
+  dateText(playerDateQuestions[1], 7, true);
+  dateText(dutchessDateResponse2[0], 8, true);
+  dateText("", 9, true);
+  dateText(playerDateQuestions[2], 10, true);
+  dateText(dutchessDateResponse3[0], 11, true);
+  dateText("", 12, true);
+  dateText(dateGardenText[2], 13, true);
+  dateText(dutchessDateResponse4[0], 14, true);
+  dateText("The End?", 15, true);
+}
+function dateSequenceSupul(){
+  dateText(playerDateQuestions[0], 0, true);
+  dateText(supulDateResponse0[0], 1, true);
+  dateText("", 2, true);
+  dateText(dateGardenText[1], 3, true);
+  dateText(supulDateResponse1[0], 4, true);
+  dateText("", 5, true);
+  dateText("", 6, true);
+  dateText(playerDateQuestions[1], 7, true);
+  dateText(supulDateResponse2[0], 8, true);
+  dateText("", 9, true);
+  dateText(playerDateQuestions[2], 10, true);
+  dateText(supulDateResponse3[0], 11, true);
+  dateText("", 12, true);
+  dateText(dateGardenText[2], 13, true);
+  dateText(supulDateResponse4[0], 14, true);
+  dateText("The End?", 15, true);
+}
+function dateSequenceBrenda(){
+  dateText(playerDateQuestions[0], 0, true);
+  dateText(brendaDateResponse0[0], 1, true);
+  dateText("", 2, true);
+  dateText(dateGardenText[1], 3, true);
+  dateText(brendaDateResponse1[0], 4, true);
+  dateText("", 5, true);
+  dateText("", 6, true);
+  dateText(playerDateQuestions[1], 7, true);
+  dateText(brendaDateResponse2[0], 8, true);
+  dateText("", 9, true);
+  dateText(playerDateQuestions[2], 10, true);
+  dateText(brendaDateResponse3[0], 11, true);
+  dateText("", 12, true);
+  dateText(dateGardenText[2], 13, true);
+  dateText(brendaDateResponse3[0], 14, true);
+  dateText("The End?", 15, true);
+}
 //Profile Information
 var profileNames = ["Dutchess Capreanu", "Supul Sinac", "Brenda Smith"];
 var profileAges = [30, 27, 25];
@@ -516,7 +638,7 @@ var playerSupulDateResponses2 = ["Hah! Well with my 89 horsepower ATV and fully 
 var playerBrendaDateResponses2 = ["Net... flix? Is that a new product?", "Oooooh yeah yeah yeah the Office? With Jam Helper? And Pim Bestley? Haha they crack me up.", "Eh I've seen an episode or two, but I'm more of an outdoorsman myself."]
 
 var playerDutchessDateResponses3 = ["How old did you say you were again?", "How poetic, have you considered being a writer?", "I... uh what?"]
-var playerSupulDateResponses3 = ["My goodness, well are you insured?", "Ha, yeah us humans sure are the apex predetors", "You know what I always: Live for a minute, die kicking and screaming."]
+var playerSupulDateResponses3 = ["My goodness, well are you insured?", "Ha, yeah us humans sure are the apex predators", "You know what I always: Live for a minute, die kicking and screaming."]
 var playerBrendaDateResponses3 = ["Any ideas what you want to study?", "Change could be good, but whats wrong with the Dark Lord's Kingdom?", "Yeah, I do love these breadsticks... wait, what?"]
 
 var playerDutchessDateEndings = ["", "", ""]
@@ -613,6 +735,7 @@ $(document).ready(function(){
       //Hide sign up, show profiles
       $("#create-profile").hide();
       $("#profiles").fadeIn();
+      createDateButtons();
     }
 
     //Messenger toggles
@@ -653,4 +776,5 @@ $(document).ready(function(){
       messengingSequence("Brenda", 5, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
 
     });
+
 });
