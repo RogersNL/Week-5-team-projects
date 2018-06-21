@@ -9,7 +9,7 @@ font-family: 'Eater', cursive;
 font-weight: 600;
 color:#dd2424;
 font-size: 82px;
-margin-top: 50%;
+margin-top: 25%;
 }
 
 #sign-up {
@@ -201,6 +201,9 @@ div[class*="newMessage"] {
 .message-hide5, .message-hide1, .message-hide2, .message-hide3, .message-hide4 {
   display: none;
 }
+.the-date-button-div1, .the-date-button-div2, .the-date-button-div3, .the-date-button-div4, .the-date-button-div5, .the-date-button-div6, .the-date-button-div7, .the-date-button-div8, .the-date-button-div9, .the-date-button-div10, .the-date-button-div11, .the-date-button-div12, .the-date-button-div13, .the-date-button-div14, .the-date-button-div15 {
+  display:none;
+}
 .sendMsg {
   text-align: left;
 }
@@ -210,4 +213,22 @@ div[class*="newMessage"] {
 .about-box {
   border:solid transparent;
   height: 80px;
+}
+
+#date-button {
+  float: right;
+}
+
+#date-div {
+ display:none;
+}
+
+#date-background {
+  background-image: url("../img/date-background.jpg");
+  height: 600px;
+  background-size: cover;
+}
+.choice1:hover, .choice2:hover, .choice3:hover {
+  cursor: crosshair;
+  color: #dd2424;
 }
