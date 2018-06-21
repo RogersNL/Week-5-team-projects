@@ -35,7 +35,6 @@ var brendaScore = 5;
 function messengingSequence (name, messageNumber, arrayNames, arrayPerson0, arrayPerson1, arrayPerson2) {
   $("#" + name + "-form-" + messageNumber).submit(function(event) {
     event.preventDefault();
-    console.log(Player);
     $(".initial-show-" + name).hide();
     var message = parseInt($("#" + name + "-options-" + messageNumber).val());
     personResponse = message;
@@ -583,8 +582,21 @@ $(document).ready(function(){
       messengingSequence("Brenda", 4, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
       messengingSequence("Brenda", 5, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
 
-      //Choose a date
-      $("#")
+    //Choose a date
+    $("#date-Dutchess").click(function(){
+      Player.likeScore = dutchessScore;
+      console.log(Player);
+      $("#profiles").empty();
+    });
+    $("#date-Supul").click(function(){
+      Player.likeScore = supulScore;
+      console.log(Player);
+      $("#profiles").empty();
+    });
+    $("#date-Brenda").click(function(){
+      Player.likeScore = brendaScore;
+      console.log(Player);
+      $("#profiles").empty();
+    });
   });
-
 });
