@@ -71,35 +71,35 @@ function messengingSequence (name, messageNumber, arrayNames, arrayPerson0, arra
       dateBrenda = false;
       if (name === "Dutchess") {
         $("#" + name + "-form-" + messageNumber).hide();
-        setTimeout(function(){$("#message-options-Dutchess").append('<button type="button" id="date-Dutchess" class="btn btn-primary btn-block">Go On Date with Dutchess</button>')}, 3000);
+        setTimeout(function(){$("#message-options-Dutchess").append('<button type="button" id="date-Dutchess" class="btn btn-primary btn-block" onclick="dutchessAudio(); hello()">Go On Date with Dutchess</button>')}, 3000);
         setTimeout(function(){$("#date-Dutchess").click(function(){
           Player.likeScore = dutchessScore;
           $("#profiles").empty();
           $("#date-div").show();
           dateDutchess = true;
-          showText("#date-text", dateGardenText[0], 0, 25);
+          showText("#date-text", dateGardenText[0], 0, 1);
           dateSequenceDutchess();
         })}, 3100);
       } else if (name === "Supul") {
         $("#" + name + "-form-" + messageNumber).hide();
-        setTimeout(function(){$("#message-options-Supul").append('<button type="button" id="date-Supul" class="btn btn-primary btn-block">Go On Date with Supul</button>')}, 3000);
+        setTimeout(function(){$("#message-options-Supul").append('<button type="button" id="date-Supul" class="btn btn-primary btn-block"onclick="supulAudio(); hello()">Go On Date with Supul</button>')}, 3000);
         setTimeout(function(){$("#date-Supul").click(function(){
           Player.likeScore = supulScore;
           $("#profiles").empty();
           $("#date-div").show();
           dateSupul = true;
-          showText("#date-text", dateGardenText[0], 0, 25);
+          showText("#date-text", dateGardenText[0], 0, 1);
           dateSequenceSupul();
         })}, 3100);
       } else if (name === "Brenda") {
         $("#" + name + "-form-" + messageNumber).hide();
-        setTimeout(function(){$("#message-options-Brenda").append('<button type="button" id="date-Brenda" class="btn btn-primary btn-block">Go On Date with Brenda</button>')}, 3000);
+        setTimeout(function(){$("#message-options-Brenda").append('<button type="button" id="date-Brenda" class="btn btn-primary btn-block"onclick="brendaAudio(); hello()">Go On Date with Brenda</button>')}, 3000);
         setTimeout(function(){$("#date-Brenda").click(function(){
           Player.likeScore = brendaScore;
           $("#profiles").empty();
           $("#date-div").show();
           dateBrenda = true;
-          showText("#date-text", dateGardenText[0], 0, 25);
+          showText("#date-text", dateGardenText[0], 0, 1);
           dateSequenceBrenda();
         })}, 3100);
       }
@@ -429,19 +429,19 @@ function playerChoice(singleWord1, singleWord2, singleWord3, string1, string2, s
     $(".choice1").hide();
     $(".choice2").hide();
     $(".choice3").hide();
-    showText("#date-text", message1, 0, 25);
+    showText("#date-text", message1, 0, 1);
   });
   $(".choice2").click(function(){
     $(".choice1").hide();
     $(".choice2").hide();
     $(".choice3").hide();
-    showText("#date-text", message2, 0, 25);
+    showText("#date-text", message2, 0, 1);
   });
   $(".choice3").click(function(){
     $(".choice1").hide();
     $(".choice2").hide();
     $(".choice3").hide();
-    showText("#date-text", message3, 0, 25);
+    showText("#date-text", message3, 0, 1);
   });
 }
 
@@ -450,8 +450,8 @@ function dateText(aString, index, whichDate) {
   $("#the-date-button" + index).click(function(){
     $("#date-text").text("");
     $(".the-date-button-div" + index).hide();
-    setTimeout(function(){$(".the-date-button-div" + (index + 1)).show()}, 5000);
-    showText("#date-text", dialogue, 0, 25);
+    setTimeout(function(){$(".the-date-button-div" + (index + 1)).show()}, 1000);
+    showText("#date-text", dialogue, 0, 1);
     if(index === 2 && dateDutchess === true) {
       playerChoice("Oblivious", "Shocked", "Polite", playerDutchessDateResponses0[0], playerDutchessDateResponses0[1], playerDutchessDateResponses0[2]);
     } else if (index === 2 && dateSupul === true) {
@@ -595,13 +595,13 @@ var arrayOfBrendaResponses = [brendaResponse0, brendaResponse1, brendaResponse2,
 
 //Date Dialogue
 
-var dateGardenText = ["[You show up to the Olive Garden on Main and 15th at the agreed upon time. Your date shows up " + Math.floor((Math.random() * 20) + 5) + " minutes late, citing issues finding parking. Together you proceed inside. You didn’t phone ahead, and the Olive Garden is extremely busy this time of day. There is a " + Math.floor((Math.random() * 35) + 10) + " minute  wait before getting a table, however unlimited breadsticks begin to flow and you feel yourself finally able to open up...]",
+var dateGardenText = ["[You show up to the Olive Garden on Main and 15th at the agreed upon time. Your date shows up " + Math.floor((Math.random() * 20) + 5) + " minutes late, citing issues finding parking. Together you proceed inside. You didn't phone ahead, and the Olive Garden is extremely busy this time of day. There is a " + Math.floor((Math.random() * 35) + 10) + " minute  wait before getting a table, however unlimited breadsticks begin to flow and you feel yourself finally able to open up...]",
 "[Your waiter arrives with another basket of breadsticks, as well as glasses of wine and asks to take your orders]",
 "[The waiter arrives surprisingly quickly considering how busy it is in here with your food. You and your date scarff down your meals wordlessly, after which point your date excusses themselves for" + Math.floor((Math.random() * 20) + 10) + " minutes before returning. They ask if you would like to take a walk, and given that you are all paid up and a loud chidren's birthday party just entered the establishment, you agree. Upon walking out into the cool night air, your date...]"]
 
 var dutchessDateResponse0 = ["Of course darling, even before I moved to the Dark Lord's Kingdom I was a creature of the night. I'm currently haunting the Old Farm Hotel between 11pm and sunrise. I don't see many people these days but that is ok with me, I only need a few to survive. You should stay a night if you haven't already, the decor is to die for!"];
 var dutchessDateResponse1 = ["Just another glass of wine for me, I'm on a all liquid diet."];
-var dutchessDateResponse2 = ["Well, I have a great penchant for candelabra, and they have let me do some interior decorating at the hotel when the nights are slow. I am also a collector of fine -red- wines, although unlike most I prefer a younger blend… [she gazes off into the distance apparently lost in this thought]"];
+var dutchessDateResponse2 = ["Well, I have a great penchant for candelabra, and they have let me do some interior decorating at the hotel when the nights are slow. I am also a collector of fine -red- wines, although unlike most I prefer a younger blend... [she gazes off into the distance apparently lost in this thought]"];
 var dutchessDateResponse3 = ["Ten years? The blink of an eye... Why I may be still sitting here in ten years..."];
 var dutchessDateResponse4 = ["[Gazes up at the sky as a colony of bats swoops by] I must go darling, my apologies [Before you can respond, Dutchess vanishes...]"];
 var arrayOfDutchessDateResponse = [dutchessDateResponse0, dutchessDateResponse1, dutchessDateResponse2, dutchessDateResponse3, dutchessDateResponse4];
@@ -624,10 +624,10 @@ var playerDateQuestions = ["So, tell me more about your work.", "Tell me more ab
 
 var playerDinnerChoices = ["Steak", "Fettuccine Alfredo", "Salad"]
 
-var playerDutchessDateResponses0 = ["The Old Farm Hotel you say? Huh, I feel like I recall reading about a string of mysterious disappearances that have been plaguing that establishment for months… you be careful!",
+var playerDutchessDateResponses0 = ["The Old Farm Hotel you say? Huh, I feel like I recall reading about a string of mysterious disappearances that have been plaguing that establishment for months... you be careful!",
 "You work at THAT creepy old place?? Yikes, count me out.", "I hear they have amazing candelabra, I would love to check it out sometime."]
 var playerSupulDateResponses0 = ["A true blooded hunter? I always wondered how Butcher Bret kept so well in stock of such fresh meats...", "Yikes, well I know I could sure use a drink... waiter!", "Oh no all my poor animal friends..."]
-var playerBrendaDateResponses0 = ["Yeah this place really weirds me out, I’m considering a change in location.", "If your don’t like your job you should just switch professions! Back when I was in college...[you monologue for a while about your boring past]", "Uuuh, huh? Yeah mmhmmm riiiight riiiight..."]
+var playerBrendaDateResponses0 = ["Yeah this place really weirds me out, I'm considering a change in location.", "If your don't like your job you should just switch professions! Back when I was in college...[you monologue for a while about your boring past]", "Uuuh, huh? Yeah mmhmmm riiiight riiiight..."]
 
 var playerDutchessDateResponses1 = ["Everything Ok? You sure that's all you want, I am paying.", "I like a woman that can hold her own, waiter!", "Wine before liqour, amirite??"]
 var playerSupulDateResponses1 = ["*Audible Sounds of Disgust*", "If I had known that's what you wanted I would have taken you out to the forest to catch our own dinner!", "Is it a full moon out there tonight? Ha ha!"]
@@ -644,6 +644,40 @@ var playerBrendaDateResponses3 = ["Any ideas what you want to study?", "Change c
 var playerDutchessDateEndings = ["", "", ""]
 var playerSupulDateEndings = ["", "", ""]
 var playerBrendaDateEndings = ["", "", ""]
+
+
+var intro = document.getElementById("introAudio");
+function introAudio() {
+  intro.loop = true;
+  intro.load();
+  intro.play();
+}
+
+var match = document.getElementById("matchAudio");
+function matchAudio() {
+    match.loop = true;
+    match.load();
+    match.play();
+}
+var dateDutchess = document.getElementById("dateDutchess");
+function dutchessAudio() {
+    dateDutchess.play();
+}
+var dateSupul = document.getElementById("dateSupul");
+function supulAudio() {
+    dateSupul.play();
+}
+var dateBrenda = document.getElementById("dateBrenda");
+function brendaAudio() {
+    dateBrenda.play();
+}
+var dateStarts = document.getElementById("dateStarts");
+function hello() {
+  setTimeout(function(){
+  dateStarts.play();
+}, 9000);
+}
+
 
 $(document).ready(function(){
   $("#sign-up").click(function() {
