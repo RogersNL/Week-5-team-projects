@@ -9,7 +9,7 @@ font-family: 'Eater', cursive;
 font-weight: 600;
 color:#dd2424;
 font-size: 82px;
-margin-top: 50%;
+margin-top: 25%;
 }
 
 #sign-up {
@@ -210,4 +210,18 @@ div[class*="newMessage"] {
 .about-box {
   border:solid transparent;
   height: 80px;
+}
+
+#date-button {
+  float: right;
+}
+
+#date-div {
+
+}
+
+#date-background {
+  background-image: url("../img/date-background.jpg");
+  height: 600px;
+  background-size: cover;
 }
