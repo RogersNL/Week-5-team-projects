@@ -6,17 +6,45 @@
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/scripts.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Abel|Amatic+SC|Eater|Marck+Script" rel="stylesheet">
   </head>
   <body>
+
+    <audio id="introAudio">
+      <source src="audio/fire.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="matchAudio">
+      <source src="audio/Scary.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="dateDutchess">
+      <source src="audio/laugh1.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="dateSupul">
+      <source src="audio/supul.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="dateBrenda">
+      <source src="audio/Brenda.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="dateStarts">
+      <source src="audio/Demon.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="introMessage">
+      <source src="audio/1.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <script src="js/scripts.js"></script>
+
     <div class="container">
       <div class="intro-page">
         <!-- test -->
         <h1 class="header">Dark Lord Dating!</h1>
         <!-- test -->
         <!-- <h1>Dark Lord Dating</h1> -->
-        <button type="button" class="btn btn-success btn-lg"id="sign-up">Create a new profile!</button>
+        <button type="button" class="btn btn-success btn-lg" id="sign-up" onclick="introAudio()">Create a new profile!</button>
       </div>
 
 
@@ -165,7 +193,8 @@
               </label>
             </div>
             <p id="blank-form" class="initial-hidden">Please fill in the blank fields.</p>
-            <button type="submit" class="btn btn-success" name="button" id="submit-button">Match me!</button>
+            <button type="submit" class="btn btn-success" name="button" id="submit-button" onclick="matchAudio(); runIntro()" onclick="matchLoop()" >Match me!</button>
+            <!-- <button type="submit" class="btn btn-success" name="button" id="submit-button" onclick="matchAudio()" onclick="matchLoop()" >Match me!</button> -->
           </form>
         </div>
       </div>

@@ -65,7 +65,7 @@ function messengingSequence (name, messageNumber, arrayNames, arrayPerson0, arra
     if (messageNumber === 5)
       if (name === "Dutchess") {
         $("#" + name + "-form-" + messageNumber).hide();
-        setTimeout(function(){$("#message-options-Dutchess").append('<button type="button" id="date-Dutchess" class="btn btn-primary btn-block">Go On Date with Dutchess</button>')}, 3000);
+        setTimeout(function(){$("#message-options-Dutchess").append('<button type="button" id="date-Dutchess" class="btn btn-primary btn-block" onclick="dutchessAudio(); hello()">Go On Date with Dutchess</button>')}, 3000);
         setTimeout(function(){$("#date-Dutchess").click(function(){
           Player.likeScore = dutchessScore;
           console.log(Player);
@@ -73,7 +73,7 @@ function messengingSequence (name, messageNumber, arrayNames, arrayPerson0, arra
         })}, 3100);
       } else if (name === "Supul") {
         $("#" + name + "-form-" + messageNumber).hide();
-        setTimeout(function(){$("#message-options-Supul").append('<button type="button" id="date-Supul" class="btn btn-primary btn-block">Go On Date with Supul</button>')}, 3000);
+        setTimeout(function(){$("#message-options-Supul").append('<button type="button" id="date-Supul" class="btn btn-primary btn-block" onclick="supulAudio(); hello()">Go On Date with Supul</button>')}, 3000);
         setTimeout(function(){$("#date-Supul").click(function(){
           Player.likeScore = supulScore;
           console.log(Player);
@@ -81,7 +81,7 @@ function messengingSequence (name, messageNumber, arrayNames, arrayPerson0, arra
         })}, 3100);
       } else if (name === "Brenda") {
         $("#" + name + "-form-" + messageNumber).hide();
-        setTimeout(function(){$("#message-options-Brenda").append('<button type="button" id="date-Brenda" class="btn btn-primary btn-block">Go On Date with Brenda</button>')}, 3000);
+        setTimeout(function(){$("#message-options-Brenda").append('<button type="button" id="date-Brenda" class="btn btn-primary btn-block" onclick="brendaAudio(); hello()">Go On Date with Brenda</button>')}, 3000);
         setTimeout(function(){$("#date-Brenda").click(function(){
           Player.likeScore = brendaScore;
           console.log(Player);
@@ -466,6 +466,47 @@ var brendaDateResponse3 = ["Well, I'm kinda hoping to get out of this town... ma
 var brendaDateResponse4 = ["[Brenda trips on the sidewalk and falls directly into a puddle in the street]"];
 var arrayOfbrendaDateResponse = [brendaDateResponse0, brendaDateResponse1, brendaDateResponse2, brendaDateResponse3, brendaDateResponse4];
 
+
+
+
+var intro = document.getElementById("introAudio");
+function introAudio() {
+  intro.loop = true;
+  intro.load();
+  intro.play();
+}
+
+var match = document.getElementById("matchAudio");
+function matchAudio() {
+    match.loop = true;
+    match.load();
+    match.play();
+}
+var dateDutchess = document.getElementById("dateDutchess");
+function dutchessAudio() {
+    dateDutchess.play();
+}
+var dateSupul = document.getElementById("dateSupul");
+function supulAudio() {
+    dateSupul.play();
+}
+var dateBrenda = document.getElementById("dateBrenda");
+function brendaAudio() {
+    dateBrenda.play();
+}
+var dateStarts = document.getElementById("dateStarts");
+function hello() {
+  setTimeout(function(){
+  dateStarts.play();
+}, 9000);
+}
+
+var introMessage = document.getElementById("introMessage");
+function runIntro() {
+  setTimeout(function(){
+  introMessage.play();
+}, 5000);
+}
 
 
 $(document).ready(function(){
