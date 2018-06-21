@@ -153,6 +153,7 @@ img {
   font-size: 11px;
   padding: 5px;
   max-width: 75%;
+  word-wrap: break-word;
 }
 .person-message {
   float:left;
@@ -165,10 +166,11 @@ img {
   color:black;
   padding: 5px;
   max-width: 75%;
+  word-wrap: break-word;
 }
 .text-window {
-  height: 200px;
-  overflow-y: scroll;
+  height: 600px;
+  overflow-y: auto;
 }
 .respond-message {
   background-color: #E6E5EA;
