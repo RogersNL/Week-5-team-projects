@@ -66,12 +66,27 @@ function messengingSequence (name, messageNumber, arrayNames, arrayPerson0, arra
       if (name === "Dutchess") {
         $("#" + name + "-form-" + messageNumber).hide();
         setTimeout(function(){$("#message-options-Dutchess").append('<button type="button" id="date-Dutchess" class="btn btn-primary btn-block">Go On Date with Dutchess</button>')}, 3000);
+        setTimeout(function(){$("#date-Dutchess").click(function(){
+          Player.likeScore = dutchessScore;
+          console.log(Player);
+          $("#profiles").empty();
+        })}, 3100);
       } else if (name === "Supul") {
         $("#" + name + "-form-" + messageNumber).hide();
         setTimeout(function(){$("#message-options-Supul").append('<button type="button" id="date-Supul" class="btn btn-primary btn-block">Go On Date with Supul</button>')}, 3000);
+        setTimeout(function(){$("#date-Supul").click(function(){
+          Player.likeScore = supulScore;
+          console.log(Player);
+          $("#profiles").empty();
+        })}, 3100);
       } else if (name === "Brenda") {
         $("#" + name + "-form-" + messageNumber).hide();
         setTimeout(function(){$("#message-options-Brenda").append('<button type="button" id="date-Brenda" class="btn btn-primary btn-block">Go On Date with Brenda</button>')}, 3000);
+        setTimeout(function(){$("#date-Brenda").click(function(){
+          Player.likeScore = brendaScore;
+          console.log(Player);
+          $("#profiles").empty();
+        })}, 3100);
       }
   });
 }
@@ -582,21 +597,5 @@ $(document).ready(function(){
       messengingSequence("Brenda", 4, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
       messengingSequence("Brenda", 5, profileNames, arrayOfDutchessResponses, arrayOfSupulResponses, arrayOfBrendaResponses);
 
-    //Choose a date
-    $("#date-Dutchess").click(function(){
-      Player.likeScore = dutchessScore;
-      console.log(Player);
-      $("#profiles").empty();
     });
-    $("#date-Supul").click(function(){
-      Player.likeScore = supulScore;
-      console.log(Player);
-      $("#profiles").empty();
-    });
-    $("#date-Brenda").click(function(){
-      Player.likeScore = brendaScore;
-      console.log(Player);
-      $("#profiles").empty();
-    });
-  });
 });
