@@ -399,8 +399,11 @@ function dateResponse4(){  //only one option
     $("#date-text-output").text(arrayOfbrendaDateResponse[4]);
   }
 }
-
-
+function playerChoice(singleWord1, singleWord2, singleWord3, string1, string2, string3){
+  $("#date-text").append("<div class='choice1'>" + singleWord1 + "</div>" +
+                         "<div class='choice2'>" + singleWord2 + "</div>" +
+                         "<div class='choice3'>" + singleWord3 + "</div>"
+            );
   var message1 = string1;
   var message2 = string2;
   var message3 = string3;
